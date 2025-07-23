@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>¿Es muy tarde? - Para Dome ❤️</title>
+    <style>
+      :root {
+        --primary-pastel: #ffe4e6;
+        --secondary-pastel: #e0f2fe;
+        --accent-pastel: #fef3c7;
+        --text-primary: #374151;
+        --text-secondary: #6b7280;
+        --background: #ffffff;
+        --romantic-pink: #f8bbd9;
+        --soft-purple: #e8d5ff;
+        --vulnerable-blue: #dbeafe;
+        --pain-purple: #f3e8ff;
+        --love-red: #fee2e2;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Georgia", serif;
+        background: var(--background);
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 20px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .page {
+        width: 100%;
+        text-align: center;
+        animation: fadeIn 0.8s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .main-header {
+        margin-bottom: 40px;
+      }
+
+      .title {
+        font-size: 2.1rem;
+        font-weight: 400;
+        color: var(--text-primary);
+        margin-bottom: 30px;
+        background: linear-gradient(
+          45deg,
+          var(--vulnerable-blue),
+          var(--pain-purple)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.3;
+        padding: 0 10px;
+      }
+
+      .vulnerable-section {
+        margin: 40px 0;
+        width: 100%;
+        max-width: 480px;
+      }
+
+      .confession-card {
+        background: rgba(219, 234, 254, 0.3);
+        margin: 25px 0;
+        padding: 35px;
+        border-radius: 20px;
+        border-left: 5px solid var(--vulnerable-blue);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        animation: slideInFade 1s ease-out;
+        position: relative;
+        text-align: left;
+      }
+
+      .confession-card::before {
+        content: "💔";
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 2em;
+        animation: pulse 3s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 0.7;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.1);
+        }
+      }
+
+      .confession-text {
+        font-size: 1.2rem;
+        color: var(--text-primary);
+        line-height: 1.7;
+        text-align: center;
+        margin-bottom: 25px;
+      }
+
+      .pain-section {
+        background: rgba(243, 232, 255, 0.4);
+        padding: 25px;
+        border-radius: 15px;
+        border-left: 4px solid var(--pain-purple);
+        margin: 25px 0;
+        position: relative;
+      }
+
+      .pain-section::before {
+        content: "😢";
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 1.5em;
+      }
+
+      .pain-text {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        text-align: center;
+        font-style: italic;
+      }
+
+      .love-declaration {
+        background: rgba(254, 226, 226, 0.4);
+        padding: 30px;
+        border-radius: 20px;
+        border: 3px solid rgba(254, 226, 226, 0.6);
+        margin: 30px 0;
+        position: relative;
+      }
+
+      .love-declaration::before {
+        content: "❤️";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 1.8em;
+        animation: heartbeat 2s ease-in-out infinite;
+      }
+
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        25%,
+        75% {
+          transform: scale(1.1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+      }
+
+      .love-text {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        text-align: center;
+        line-height: 1.6;
+        margin-left: 40px;
+      }
+
+      .emphasis {
+        color: var(--romantic-pink);
+        font-weight: 700;
+      }
+
+      .vulnerable-emphasis {
+        color: var(--vulnerable-blue);
+        font-weight: 600;
+        font-style: italic;
+      }
+
+      @keyframes slideInFade {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .final-question {
+        margin: 40px 0;
+        padding: 30px;
+        background: rgba(248, 187, 217, 0.2);
+        border-radius: 20px;
+        border: 2px solid rgba(248, 187, 217, 0.5);
+        max-width: 450px;
+        position: relative;
+      }
+
+      .final-question::before {
+        content: "⏰";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 1.5em;
+      }
+
+      .final-question-text {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: var(--text-primary);
+        line-height: 1.7;
+        text-align: center;
+        margin-left: 35px;
+        font-style: italic;
+      }
+
+      .navigation-section {
+        margin-top: 40px;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .nav-button {
+        background: linear-gradient(
+          45deg,
+          var(--romantic-pink),
+          var(--soft-purple)
+        );
+        border: none;
+        border-radius: 25px;
+        padding: 12px 24px;
+        font-size: 1rem;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .nav-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .nav-button:active {
+        transform: scale(0.95);
+      }
+
+      .back-button {
+        background: linear-gradient(
+          45deg,
+          var(--secondary-pastel),
+          var(--accent-pastel)
+        );
+        color: var(--text-primary);
+      }
+
+      /* Responsive para móviles pequeños */
+      @media (max-width: 320px) {
+        .title {
+          font-size: 1.8rem;
+        }
+
+        .confession-card {
+          padding: 25px;
+        }
+
+        .confession-text {
+          font-size: 1.1rem;
+        }
+
+        .love-text {
+          font-size: 1.2rem;
+        }
+
+        .navigation-section {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="page">
+        <header class="main-header">
+          <h1 class="title">¿Es muy tarde?</h1>
+        </header>
+
+        <section class="vulnerable-section">
+          <div class="confession-card">
+            <p class="confession-text">
+              Si es muy tarde para esto,
+              <span class="vulnerable-emphasis">debí hacerlo hace tiempo</span>,
+              pero intenté respetar tu decisión, intenté hacerlo, pero
+              simplemente <span class="emphasis">no puedo</span>.
+            </p>
+
+            <div class="pain-section">
+              <p class="pain-text">
+                Algo dentro de mí no acepta, y me duele saber lo que piensas de
+                mí. Piensas que nunca te amé, que no te importé, y cosas así.
+              </p>
+            </div>
+
+            <div class="love-declaration">
+              <p class="love-text">
+                Sí, cometí errores pero
+                <span class="emphasis">jamás dejé de amarte</span>.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="final-question">
+          <p class="final-question-text">
+            Tal vez sea muy tarde, tal vez ya no haya vuelta atrás, pero
+            necesitaba que supieras la verdad. Necesitaba intentarlo una vez
+            más, aunque sea la última.
+          </p>
+        </section>
+
+        <section class="navigation-section">
+          <a href="page4.html" class="nav-button back-button">← Regresar</a>
+          <a href="page-ecos.html" class="nav-button">Continuar →</a>
+        </section>
+      </div>
+    </div>
+
+    <script>
+      // Efecto de entrada suave al cargar la página
+      window.addEventListener("load", function () {
+        document.body.style.opacity = "0";
+        document.body.style.transition = "opacity 0.5s ease-in-out";
+        setTimeout(() => {
+          document.body.style.opacity = "1";
+        }, 100);
+      });
+    </script>
+  </body>
+</html>

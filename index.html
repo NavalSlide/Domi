@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Para Dome ❤️</title>
+    <style>
+      :root {
+        --primary-pastel: #ffe4e6;
+        --secondary-pastel: #e0f2fe;
+        --accent-pastel: #fef3c7;
+        --text-primary: #374151;
+        --text-secondary: #6b7280;
+        --background: #ffffff;
+        --romantic-pink: #f8bbd9;
+        --soft-purple: #e8d5ff;
+        --question-blue: #dbeafe;
+        --answer-green: #d1fae5;
+        --error-red: #fee2e2;
+        --sincere-blue: #dbeafe;
+        --apology-purple: #f3e8ff;
+        --heart-red: #fecaca;
+        --vulnerable-blue: #dbeafe;
+        --pain-purple: #f3e8ff;
+        --love-red: #fee2e2;
+        --past-gray: #f3f4f6;
+        --pain-red: #fee2e2;
+        --hope-blue: #dbeafe;
+        --trust-green: #00f878;
+        --loyalty-gold: #fef3c7;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Georgia", serif;
+        background: var(--background);
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      .spa-container {
+        width: 100%;
+        min-height: 100vh;
+        position: relative;
+      }
+
+      .page-section {
+        display: none;
+        opacity: 0;
+        width: 100%;
+        min-height: 100vh;
+        padding: 20px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+        transform: translateY(20px);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        will-change: opacity, transform;
+      }
+
+      .page-section.active {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+        position: relative;
+      }
+
+      .page-section.transitioning {
+        pointer-events: none;
+        display: flex;
+      }
+
+      .page-section.fade-out {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      .page-section.fade-in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .container {
+        max-width: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .page {
+        width: 100%;
+        text-align: center;
+        animation: fadeIn 0.8s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .main-header {
+        margin-bottom: 40px;
+      }
+
+      .title {
+        font-size: 2rem;
+        font-weight: 300;
+        color: var(--text-primary);
+        margin-bottom: 20px;
+        background: linear-gradient(
+          45deg,
+          var(--romantic-pink),
+          var(--soft-purple)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .photo-section {
+        margin: 40px 0;
+        position: relative;
+      }
+
+      .photo-container {
+        position: relative;
+        display: inline-block;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .main-photo {
+        width: 280px;
+        height: 350px;
+        object-fit: cover;
+        border-radius: 20px;
+      }
+
+      .overlay-text {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .romantic-phrase {
+        position: absolute;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        padding: 6px 12px;
+        border-radius: 20px;
+        opacity: 0;
+        transform: scale(0);
+        animation: heartFloat 6s ease-in-out infinite;
+        white-space: nowrap;
+      }
+
+      .romantic-phrase::before {
+        content: "💖";
+        margin-right: 5px;
+        font-size: 1.2em;
+      }
+
+      .romantic-phrase::after {
+        content: "💖";
+        margin-left: 5px;
+        font-size: 1.2em;
+      }
+
+      .romantic-phrase:nth-child(1) {
+        background: rgba(248, 187, 217, 0.9);
+        top: 20%;
+        left: 10%;
+        animation-delay: 0s;
+      }
+
+      .romantic-phrase:nth-child(2) {
+        background: rgba(232, 213, 255, 0.9);
+        top: 40%;
+        right: 15%;
+        animation-delay: 2s;
+      }
+
+      .romantic-phrase:nth-child(3) {
+        background: rgba(254, 243, 199, 0.9);
+        top: 60%;
+        left: 20%;
+        animation-delay: 4s;
+      }
+
+      .romantic-phrase:nth-child(4) {
+        background: rgba(255, 228, 230, 0.9);
+        top: 30%;
+        right: 5%;
+        animation-delay: 6s;
+      }
+
+      .romantic-phrase:nth-child(5) {
+        background: rgba(224, 242, 254, 0.9);
+        top: 70%;
+        right: 25%;
+        animation-delay: 8s;
+      }
+
+      .romantic-phrase:nth-child(6) {
+        background: rgba(248, 187, 217, 0.9);
+        top: 50%;
+        left: 5%;
+        animation-delay: 10s;
+      }
+
+      .romantic-phrase:nth-child(7) {
+        background: rgba(232, 213, 255, 0.9);
+        top: 80%;
+        left: 30%;
+        animation-delay: 12s;
+      }
+
+      .romantic-phrase:nth-child(8) {
+        background: rgba(254, 243, 199, 0.9);
+        top: 15%;
+        right: 30%;
+        animation-delay: 14s;
+      }
+
+      .romantic-phrase:nth-child(9) {
+        background: rgba(255, 228, 230, 0.9);
+        top: 65%;
+        left: 35%;
+        animation-delay: 16s;
+      }
+
+      .romantic-phrase:nth-child(10) {
+        background: rgba(224, 242, 254, 0.9);
+        top: 45%;
+        left: 25%;
+        animation-delay: 18s;
+      }
+
+      .romantic-phrase:nth-child(11) {
+        background: rgba(248, 187, 217, 0.9);
+        top: 75%;
+        right: 10%;
+        animation-delay: 20s;
+      }
+
+      .romantic-phrase:nth-child(12) {
+        background: rgba(232, 213, 255, 0.9);
+        top: 35%;
+        left: 15%;
+        animation-delay: 22s;
+      }
+
+      @keyframes heartFloat {
+        0% {
+          opacity: 0;
+          transform: scale(0) translateY(0px);
+        }
+        15% {
+          opacity: 1;
+          transform: scale(1) translateY(-10px);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.1) translateY(-20px);
+        }
+        85% {
+          opacity: 1;
+          transform: scale(1) translateY(-30px);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(0.8) translateY(-50px);
+        }
+      }
+
+      .cta-section {
+        margin-top: 40px;
+      }
+
+      .invitation-text {
+        font-size: 1.2rem;
+        font-weight: 300;
+        color: var(--text-secondary);
+        margin-bottom: 30px;
+        font-style: italic;
+      }
+
+      .next-arrow {
+        background: linear-gradient(
+          45deg,
+          var(--romantic-pink),
+          var(--soft-purple)
+        );
+        border: none;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .next-arrow:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .next-arrow:active {
+        transform: scale(0.95);
+      }
+
+      .next-arrow:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      /* Section 2 - Questions Styles */
+      .intro-text {
+        font-size: 1.1rem;
+        font-weight: 300;
+        color: var(--text-secondary);
+        margin-bottom: 40px;
+        font-style: italic;
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .questions-section {
+        margin: 40px 0;
+        width: 100%;
+        max-width: 420px;
+      }
+
+      .question-card {
+        background: rgba(219, 234, 254, 0.2);
+        margin: 20px 0;
+        padding: 25px;
+        border-radius: 20px;
+        border-left: 5px solid var(--question-blue);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        animation: slideInLeft 0.7s ease-out;
+        position: relative;
+        text-align: left;
+      }
+
+      .question-card::before {
+        content: "🤔";
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 1.5em;
+      }
+
+      .question {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 15px;
+        line-height: 1.3;
+      }
+
+      .answer {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        background: rgba(209, 250, 229, 0.3);
+        padding: 15px;
+        border-radius: 12px;
+        border-left: 3px solid var(--answer-green);
+        position: relative;
+      }
+
+      .answer::before {
+        content: "💭";
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        font-size: 1.1em;
+      }
+
+      .answer-text {
+        margin-left: 30px;
+      }
+
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .question-card:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      .question-card:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .question-card:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      .question-card:nth-child(4) {
+        animation-delay: 0.4s;
+      }
+
+      .final-message {
+        margin: 40px 0;
+        padding: 25px;
+        background: rgba(248, 187, 217, 0.2);
+        border-radius: 20px;
+        border: 2px solid rgba(248, 187, 217, 0.4);
+        max-width: 400px;
+      }
+
+      .final-message-text {
+        font-size: 1.1rem;
+        font-weight: 400;
+        color: var(--text-primary);
+        line-height: 1.6;
+        font-style: italic;
+      }
+
+      .navigation-section {
+        margin-top: 40px;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .nav-button {
+        background: linear-gradient(
+          45deg,
+          var(--romantic-pink),
+          var(--soft-purple)
+        );
+        border: none;
+        border-radius: 25px;
+        padding: 12px 24px;
+        font-size: 1rem;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .nav-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .nav-button:active {
+        transform: scale(0.95);
+      }
+
+      .back-button {
+        background: linear-gradient(
+          45deg,
+          var(--secondary-pastel),
+          var(--accent-pastel)
+        );
+        color: var(--text-primary);
+      }
+
+      /* Section 3 - Errors Styles */
+      .description {
+        font-size: 1.1rem;
+        font-weight: 300;
+        color: var(--text-secondary);
+        margin-bottom: 40px;
+        font-style: italic;
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .errors-section {
+        margin: 40px 0;
+        width: 100%;
+        max-width: 400px;
+      }
+
+      .errors-list {
+        list-style: none;
+        padding: 0;
+        text-align: left;
+      }
+
+      .error-item {
+        background: rgba(254, 226, 226, 0.3);
+        margin: 15px 0;
+        padding: 20px;
+        border-radius: 15px;
+        border-left: 4px solid var(--romantic-pink);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        animation: slideIn 0.6s ease-out;
+        position: relative;
+      }
+
+      .error-item::before {
+        content: "💔";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 1.2em;
+      }
+
+      .error-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 8px;
+        margin-left: 35px;
+      }
+
+      .error-description {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        margin-left: 35px;
+        line-height: 1.5;
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateX(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .error-item:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      .error-item:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .error-item:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      .error-item:nth-child(4) {
+        animation-delay: 0.4s;
+      }
+      .error-item:nth-child(5) {
+        animation-delay: 0.5s;
+      }
+
+      /* Section 4 - Apology Styles */
+      .apology-section {
+        margin: 40px 0;
+        width: 100%;
+        max-width: 450px;
+      }
+
+      .apology-card {
+        background: rgba(243, 232, 255, 0.3);
+        margin: 25px 0;
+        padding: 30px;
+        border-radius: 20px;
+        border-left: 5px solid var(--apology-purple);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        animation: slideInUp 0.8s ease-out;
+        position: relative;
+        text-align: left;
+      }
+
+      .apology-card::before {
+        content: "💔";
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 1.8em;
+        animation: heartbeat 2s ease-in-out infinite;
+      }
+
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+      }
+
+      .apology-intro {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .apology-list {
+        list-style: none;
+        padding: 0;
+        margin: 20px 0;
+      }
+
+      .apology-item {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        margin: 12px 0;
+        padding-left: 25px;
+        position: relative;
+        line-height: 1.5;
+      }
+
+      .apology-item::before {
+        content: "😔";
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 1.2em;
+      }
+
+      .sincere-message {
+        background: rgba(219, 234, 254, 0.4);
+        padding: 25px;
+        border-radius: 15px;
+        border-left: 4px solid var(--sincere-blue);
+        margin-top: 25px;
+        position: relative;
+      }
+
+      .sincere-message::before {
+        content: "💙";
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 1.5em;
+      }
+
+      .sincere-text {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: var(--text-primary);
+        text-align: center;
+        line-height: 1.6;
+        font-style: italic;
+      }
+
+      .emphasis {
+        color: var(--romantic-pink);
+        font-weight: 600;
+      }
+
+      @keyframes slideInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .final-plea {
+        margin: 40px 0;
+        padding: 30px;
+        background: rgba(254, 202, 202, 0.2);
+        border-radius: 20px;
+        border: 2px solid rgba(254, 202, 202, 0.4);
+        max-width: 420px;
+        position: relative;
+      }
+
+      .final-plea::before {
+        content: "🙏";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 1.5em;
+      }
+
+      .final-plea-text {
+        font-size: 1.1rem;
+        font-weight: 400;
+        color: var(--text-primary);
+        line-height: 1.7;
+        text-align: center;
+        margin-left: 30px;
+      }
+
+      /* Section 5 - Too Late Styles */
+      .vulnerable-section {
+        margin: 40px 0;
+        width: 100%;
+        max-width: 480px;
+      }
+
+      .confession-card {
+        background: rgba(219, 234, 254, 0.3);
+        margin: 25px 0;
+        padding: 35px;
+        border-radius: 20px;
+        border-left: 5px solid var(--vulnerable-blue);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        animation: slideInFade 1s ease-out;
+        position: relative;
+        text-align: left;
+      }
+
+      .confession-card::before {
+        content: "💔";
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 2em;
+        animation: pulse 3s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 0.7;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.1);
+        }
+      }
+
+      .confession-text {
+        font-size: 1.2rem;
+        color: var(--text-primary);
+        line-height: 1.7;
+        text-align: center;
+        margin-bottom: 25px;
+      }
+
+      .pain-section {
+        background: rgba(243, 232, 255, 0.4);
+        padding: 25px;
+        border-radius: 15px;
+        border-left: 4px solid var(--pain-purple);
+        margin: 25px 0;
+        position: relative;
+      }
+
+      .pain-section::before {
+        content: "😢";
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 1.5em;
+      }
+
+      .pain-text {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        text-align: center;
+        font-style: italic;
+      }
+
+      .love-declaration {
+        background: rgba(254, 226, 226, 0.4);
+        padding: 30px;
+        border-radius: 20px;
+        border: 3px solid rgba(254, 226, 226, 0.6);
+        margin: 30px 0;
+        position: relative;
+      }
+
+      .love-declaration::before {
+        content: "❤️";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 1.8em;
+        animation: heartbeat 2s ease-in-out infinite;
+      }
+
+      .love-text {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        text-align: center;
+        line-height: 1.6;
+        margin-left: 40px;
+      }
+
+      .vulnerable-emphasis {
+        color: var(--vulnerable-blue);
+        font-weight: 600;
+        font-style: italic;
+      }
+
+      @keyframes slideInFade {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .final-question {
+        margin: 40px 0;
+        padding: 30px;
+        background: rgba(248, 187, 217, 0.2);
+        border-radius: 20px;
+        border: 2px solid rgba(248, 187, 217, 0.5);
+        max-width: 450px;
+        position: relative;
+      }
+
+      .final-question::before {
+        content: "⏰";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 1.5em;
+      }
+
+      .final-question-text {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: var(--text-primary);
+        line-height: 1.7;
+        text-align: center;
+        margin-left: 35px;
+        font-style: italic;
+      }
+
+      /* Section 6 - Echoes Styles */
+      .echo-section {
+        margin: 40px 0;
+        width: 100%;
+        max-width: 550px;
+      }
+
+      .past-card {
+        background: rgba(254, 226, 226, 0.3);
+        margin: 25px 0;
+        padding: 35px;
+        border-radius: 20px;
+        border-left: 5px solid var(--pain-red);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        animation: slideInEcho 1s ease-out;
+        position: relative;
+        text-align: left;
+      }
+
+      .past-card::before {
+        content: "💔";
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 2em;
+        animation: brokenHeart 4s ease-in-out infinite;
+      }
+
+      @keyframes brokenHeart {
+        0%,
+        100% {
+          opacity: 0.6;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.1);
+        }
+      }
+
+      .past-text {
+        font-size: 1.1rem;
+        color: var(--text-primary);
+        line-height: 1.7;
+        text-align: center;
+        margin-bottom: 25px;
+      }
+
+      .pain-acknowledgment {
+        background: rgba(243, 244, 246, 0.6);
+        padding: 25px;
+        border-radius: 15px;
+        border-left: 4px solid var(--past-gray);
+        margin: 25px 0;
+        position: relative;
+      }
+
+      .pain-acknowledgment::before {
+        content: "😔";
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 1.5em;
+      }
+
+      .difference-section {
+        background: rgba(219, 234, 254, 0.4);
+        padding: 30px;
+        border-radius: 20px;
+        border: 3px solid rgba(219, 234, 254, 0.7);
+        margin: 30px 0;
+        position: relative;
+      }
+
+      .difference-section::before {
+        content: "✨";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 2em;
+        animation: sparkle 3s ease-in-out infinite;
+      }
+
+      @keyframes sparkle {
+        0%,
+        100% {
+          opacity: 0.7;
+          transform: rotate(0deg) scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: rotate(180deg) scale(1.2);
+        }
+      }
+
+      .difference-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        text-align: center;
+        margin-bottom: 20px;
+        margin-left: 40px;
+      }
+
+      .difference-text {
+        font-size: 1.1rem;
+        color: var(--text-primary);
+        line-height: 1.7;
+        text-align: center;
+        margin-left: 40px;
+      }
+
+      .loyalty-declaration {
+        background: rgba(209, 250, 229, 0.4);
+        padding: 35px;
+        border-radius: 20px;
+        border: 3px solid rgba(209, 250, 229, 0.7);
+        margin: 35px 0;
+        position: relative;
+      }
+
+      .loyalty-declaration::before {
+        content: "🐕";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 2em;
+        animation: puppyLove 2s ease-in-out infinite;
+      }
+
+      @keyframes puppyLove {
+        0%,
+        100% {
+          transform: scale(1) rotate(-5deg);
+        }
+        50% {
+          transform: scale(1.1) rotate(5deg);
+        }
+      }
+
+      .loyalty-text {
+        font-size: 1.2rem;
+        color: var(--text-primary);
+        line-height: 1.7;
+        text-align: center;
+        margin-left: 40px;
+        font-weight: 500;
+      }
+
+      .never-section {
+        background: rgba(254, 243, 199, 0.4);
+        padding: 30px;
+        border-radius: 20px;
+        border: 3px solid rgba(254, 243, 199, 0.8);
+        margin: 30px 0;
+        position: relative;
+      }
+
+      .never-section::before {
+        content: "🚫";
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 2em;
+        animation: strongNo 3s ease-in-out infinite;
+      }
+
+      @keyframes strongNo {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        25%,
+        75% {
+          transform: scale(1.1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+      }
+
+      .never-title {
+        font-size: 1.3rem;
+        font-weight: 800;
+        color: #dc2626;
+        text-align: center;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .never-text {
+        font-size: 1.1rem;
+        color: var(--text-primary);
+        line-height: 1.6;
+        text-align: center;
+      }
+
+      .loyalty-emphasis {
+        color: var(--trust-green);
+        font-weight: 700;
+      }
+
+      .never-emphasis {
+        color: #dc2626;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      @keyframes slideInEcho {
+        from {
+          opacity: 0;
+          transform: translateY(40px) scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      /* Responsive para móviles pequeños */
+      @media (max-width: 320px) {
+        .title {
+          font-size: 1.6rem;
+        }
+
+        .main-photo {
+          width: 240px;
+          height: 300px;
+        }
+
+        .romantic-phrase {
+          font-size: 1.2rem;
+        }
+
+        .question-card {
+          padding: 20px;
+        }
+
+        .question {
+          font-size: 1.1rem;
+        }
+
+        .navigation-section {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .error-item {
+          padding: 15px;
+        }
+
+        .error-title {
+          font-size: 1rem;
+        }
+
+        .apology-card {
+          padding: 25px;
+        }
+
+        .apology-intro {
+          font-size: 1.2rem;
+        }
+
+        .apology-item {
+          font-size: 1rem;
+        }
+
+        .confession-card {
+          padding: 25px;
+        }
+
+        .confession-text {
+          font-size: 1.1rem;
+        }
+
+        .love-text {
+          font-size: 1.2rem;
+        }
+
+        .past-card {
+          padding: 25px;
+        }
+
+        .difference-section {
+          padding: 25px;
+        }
+
+        .difference-title {
+          font-size: 1.2rem;
+          margin-left: 30px;
+        }
+
+        .difference-text {
+          margin-left: 30px;
+        }
+
+        .loyalty-text {
+          margin-left: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Background Music -->
+    <audio id="background-music" loop preload="auto" autoplay>
+      <source src="songs/Til Kingdom Come.mp3" type="audio/mpeg" />
+      Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <div class="spa-container">
+      <!-- Section 1: Welcome -->
+      <section class="page-section active" id="section-1">
+        <div class="container">
+          <div class="page">
+            <header class="main-header">
+              <h1 class="title">Página exclusivamente para Dome</h1>
+            </header>
+
+            <section class="photo-section">
+              <div class="photo-container">
+                <img src="Dome1.jpeg" alt="Dome" class="main-photo" />
+                <div class="overlay-text">
+                  <span class="romantic-phrase">Perfecta</span>
+                  <span class="romantic-phrase">Divina</span>
+                  <span class="romantic-phrase">Hermosa</span>
+                  <span class="romantic-phrase">Preciosa</span>
+                  <span class="romantic-phrase">Única</span>
+                  <span class="romantic-phrase">Especial</span>
+                  <span class="romantic-phrase">Sus ojos</span>
+                  <span class="romantic-phrase">Su carisma</span>
+                  <span class="romantic-phrase">Su humor</span>
+                  <span class="romantic-phrase">Su carita</span>
+                  <span class="romantic-phrase">Su sonrisa</span>
+                  <span class="romantic-phrase">Su mirada</span>
+                </div>
+              </div>
+            </section>
+
+            <section class="cta-section">
+              <p class="invitation-text">
+                Se que estas enojada pero dame un momento de tu tiempo pls
+              </p>
+              <button
+                class="next-arrow"
+                onclick="navigationManager.nextSection()"
+              >
+                →
+              </button>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Questions -->
+      <section class="page-section" id="section-2">
+        <div class="container">
+          <div class="page">
+            <header class="main-header">
+              <h1 class="title">Sé que tienes algunas preguntas</h1>
+              <p class="intro-text">
+                Y quiero responderte con total honestidad
+              </p>
+            </header>
+
+            <section class="questions-section">
+              <div class="question-card">
+                <div class="question">¿Qué es esto?</div>
+                <div class="answer">
+                  <div class="answer-text">
+                    Es mi forma de mostrarte que realmente me importas. Una
+                    página web hecha especialmente para ti, donde puedo expresar
+                    todo lo que siento sin interrupciones, sin malentendidos,
+                    solo mis sentimientos puros hacia ti.
+                  </div>
+                </div>
+              </div>
+
+              <div class="question-card">
+                <div class="question">¿Debería seguir leyendo?</div>
+                <div class="answer">
+                  <div class="answer-text">
+                    Solo si quieres conocer la verdad de mis sentimientos. No te
+                    voy a obligar, pero si decides continuar, encontrarás la
+                    versión más honesta de mí, sin máscaras, sin pretextos, solo
+                    yo siendo real contigo.
+                  </div>
+                </div>
+              </div>
+
+              <div class="question-card">
+                <div class="question">¿Es para volver?</div>
+                <div class="answer">
+                  <div class="answer-text">
+                    Yo sí quiero, pero depende de ti. Sé que tu mamá no quiere,
+                    pero eso lo veremos más adelante. Lo importante ahora es lo
+                    que tú sientes y lo que tú decides. No te voy a presionar,
+                    solo quiero que sepas que mi deseo de estar contigo es real.
+                  </div>
+                </div>
+              </div>
+
+              <div class="question-card">
+                <div class="question">¿Realmente me amas?</div>
+                <div class="answer">
+                  <div class="answer-text">
+                    Eso lo veremos más adelante. Por ahora, quiero que sepas que
+                    mis sentimientos hacia ti son genuinos y que esta página
+                    existe porque realmente me importas. Las acciones hablan más
+                    que las palabras, y espero poder demostrártelo.
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="final-message">
+              <p class="final-message-text">
+                Estas son las preguntas que quizas te estes haciendo, pero
+                creeme vale la pena continuar. Porque no empezar con lo que
+                salio mal
+              </p>
+            </section>
+
+            <section class="navigation-section">
+              <button
+                class="nav-button back-button"
+                onclick="navigationManager.previousSection()"
+              >
+                ← Regresar
+              </button>
+              <button
+                class="nav-button"
+                onclick="navigationManager.nextSection()"
+              >
+                Continuar →
+              </button>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Errors -->
+      <section class="page-section" id="section-3">
+        <div class="container">
+          <div class="page">
+            <header class="main-header">
+              <h1 class="title">
+                Cometí errores, no soy perfecto, y admito que cometí errores
+              </h1>
+              <p class="description">
+                Reconozco mis fallas y quiero ser honesto contigo sobre lo que
+                hice mal
+              </p>
+            </header>
+
+            <section class="errors-section">
+              <ul class="errors-list">
+                <li class="error-item">
+                  <div class="error-title">No proprizarte</div>
+                  <div class="error-description">
+                    Que estupido fui al decir programar o jugar con mis amigos,
+                    envez de priorizar al amor de mi vida 😭😭
+                  </div>
+                </li>
+
+                <li class="error-item">
+                  <div class="error-title">Error 2: No reponder rapido</div>
+                  <div class="error-description">
+                    Si, lo admito, yo no te respondía rapido 😔. Me esperaba
+                    máximo 10 minutos para hacerlo. Y no es porque no te quiera,
+                    o no me importara. Créeme, me moría por responder. Pero soy
+                    un IDIOTA por seguir el consejo de un amigo. Me dijo que si
+                    quería durar en la relación, no debía responder de
+                    INMEDIATO, porque te me ibas a aburrir, y que no respondiera
+                    tan seguido. Y pues fui un IMBÉCIL, TONTO, ESTÚPIDO por
+                    creer eso. TE MALDIGO JAIRON LÓPEZ.
+                  </div>
+                </li>
+
+                <li class="error-item">
+                  <div class="error-title">No pasar tiempo contigo</div>
+                  <div class="error-description">
+                    Qué PENDEJO fui al creer que, con solo estar cerca de ti, ya
+                    era suficiente. Debí hablar todo contigo, alejarte del grupo
+                    de amigas para conversar a solas. Créeme, LO QUERÍA HACER,
+                    pero mi ESTÚPIDO cerebro pensó que estaba haciendo lo
+                    correcto, cuando NO FUE ASÍ.
+                  </div>
+                </li>
+
+                <li class="error-item">
+                  <div class="error-title">No comprarte regalos</div>
+                  <div class="error-description">
+                    Ojalá tuviera el dinero para comprarte algo grande... pero
+                    no lo tengo. Y fallé incluso en comprarte cosas pequeñas,
+                    como un chicle o cualquier detalle sencillo. Sentía que te
+                    merecías algo mejor. También pensé que darte cartas, algo
+                    hecho a mano o por mí, ya era suficiente… o incluso algo
+                    mejor. Perdón por creer eso 😔
+                  </div>
+                </li>
+
+                <li class="error-item">
+                  <div class="error-title">
+                    Error 5: NO DARME CUENTA DE MIS ERRORES
+                  </div>
+                  <div class="error-description">
+                    Soy alguien inteligente, un excelente programador, pero ni
+                    aun así pude notar que algo andaba mal. Ese fue mi error:
+                    pensar que todo estaba bien. Le hice caso a tus palabras:
+                    "TODO ESTÁ BIEN", y no me detuve a mirar si realmente lo
+                    estaba. Recién me entero de todo esto gracias a tus amigas,
+                    y si no me lo decían, seguiría pensando que no hice nada
+                    mal. Pero la realidad es otra... Y lamento si te lastimé con
+                    estos errores. No era mi intención. Pero soy humano, y
+                    cometo errores constantemente… Y ahora me toca pagar el
+                    precio.
+                  </div>
+                </li>
+              </ul>
+            </section>
+
+            <section class="navigation-section">
+              <button
+                class="nav-button back-button"
+                onclick="navigationManager.previousSection()"
+              >
+                ← Regresar
+              </button>
+              <button
+                class="nav-button"
+                onclick="navigationManager.nextSection()"
+              >
+                Continuar →
+              </button>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Apology -->
+      <section class="page-section" id="section-4">
+        <div class="container">
+          <div class="page">
+            <header class="main-header">
+              <h1 class="title">Perdón</h1>
+            </header>
+
+            <section class="apology-section">
+              <div class="apology-card">
+                <div class="apology-intro">Perdón por:</div>
+
+                <ul class="apology-list">
+                  <li class="apology-item">No ser el chico de tus sueños</li>
+                  <li class="apology-item">No cumplir tus expectativas</li>
+                  <li class="apology-item">Decepcionarte</li>
+                  <li class="apology-item">Dejarte en visto 😔</li>
+                </ul>
+
+                <div class="sincere-message">
+                  <p class="sincere-text">
+                    Pero créeme,
+                    <span class="emphasis">di lo mejor de mí</span>. Creí haber
+                    hecho las cosas bien, pero en serio
+                    <span class="emphasis">di todo de mí</span>.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section class="final-plea">
+              <p class="final-plea-text">
+                Sé que mis disculpas no borran el daño, pero necesitaba que
+                supieras que nunca fue mi intención lastimarte. Cada error que
+                cometí fue por inexperiencia, no por falta de amor hacia ti.
+              </p>
+            </section>
+
+            <section class="navigation-section">
+              <button
+                class="nav-button back-button"
+                onclick="navigationManager.previousSection()"
+              >
+                ← Regresar
+              </button>
+              <button
+                class="nav-button"
+                onclick="navigationManager.nextSection()"
+              >
+                Continuar →
+              </button>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: Too Late? -->
+      <section class="page-section" id="section-5">
+        <div class="container">
+          <div class="page">
+            <header class="main-header">
+              <h1 class="title">¿Es muy tarde?</h1>
+            </header>
+
+            <section class="vulnerable-section">
+              <div class="confession-card">
+                <p class="confession-text">
+                  Si es muy tarde para esto,
+                  <span class="vulnerable-emphasis"
+                    >debí hacerlo hace tiempo</span
+                  >, pero intenté respetar tu decisión, intenté hacerlo, pero
+                  simplemente <span class="emphasis">no puedo</span>.
+                </p>
+
+                <div class="pain-section">
+                  <p class="pain-text">
+                    Algo dentro de mí no acepta, y me duele saber lo que piensas
+                    de mí. Piensas que nunca te amé, que no te importé, y cosas
+                    así.
+                  </p>
+                </div>
+
+                <div class="love-declaration">
+                  <p class="love-text">
+                    Sí, cometí errores pero
+                    <span class="emphasis">jamás dejé de amarte</span>.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section class="final-question">
+              <p class="final-question-text">
+                Tal vez sea muy tarde, tal vez ya no haya vuelta atrás, pero
+                necesitaba que supieras la verdad. Necesitaba intentarlo una vez
+                más, aunque sea la última.
+              </p>
+            </section>
+
+            <section class="navigation-section">
+              <button
+                class="nav-button back-button"
+                onclick="navigationManager.previousSection()"
+              >
+                ← Regresar
+              </button>
+              <button
+                class="nav-button"
+                onclick="navigationManager.nextSection()"
+              >
+                Continuar →
+              </button>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 6: Echoes -->
+      <section class="page-section" id="section-6">
+        <div class="container">
+          <div class="page">
+            <header class="main-header">
+              <h1 class="title">Ecos del Pasado</h1>
+            </header>
+
+            <section class="echo-section">
+              <div class="past-card">
+                <p class="past-text">
+                  Sé que no soy tu primera relación, y que tienes un pasado.
+                  Rogaste por amor, dabas todo de ti, y esa persona lo único que
+                  hizo fue engañarte.
+                </p>
+
+                <div class="pain-acknowledgment">
+                  <p class="pain-text">Es triste, pero yo no soy él...</p>
+                </div>
+
+                <div class="difference-section">
+                  <div class="difference-title">Soy muy diferente</div>
+
+                  <p class="difference-text">
+                    Tal vez crees que todos los hombres son iguales, pero no es
+                    verdad. A veces tienes suerte de conocer buenas personas, y
+                    <span class="emphasis">yo me considero una de esas</span>.
+                  </p>
+                </div>
+
+                <p class="past-text">
+                  Si no cumplí tus expectativas, lo arruiné un par de veces,
+                  pero créeme que
+                  <span class="loyalty-emphasis">aprecié tu amor como loco</span
+                  >, di lo que más pude.
+                </p>
+
+                <div class="loyalty-declaration">
+                  <p class="loyalty-text">
+                    Y estoy atrás de ti,
+                    <span class="emphasis">como perrito 😼</span>
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section class="never-section">
+              <div class="never-title">Y engañar, JAMÁS</div>
+
+              <p class="never-text">
+                En serio,
+                <span class="never-emphasis"
+                  >engañar es lo peor que puedes hacer</span
+                >. Sí, cometí errores, pero
+                <span class="never-emphasis">jamás te haría eso</span>.
+              </p>
+            </section>
+
+            <section class="navigation-section">
+              <button
+                class="nav-button back-button"
+                onclick="navigationManager.previousSection()"
+              >
+                ← Regresar
+              </button>
+              <a class="nav-button" href="page6.html"> Continuar → </a>
+            </section>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      class NavigationManager {
+        constructor() {
+          this.currentSection = 1;
+          this.totalSections = 6;
+          this.isTransitioning = false;
+          this.animationDuration = 800; // 0.8s in milliseconds
+        }
+
+        showSection(sectionNumber) {
+          if (
+            this.isTransitioning ||
+            sectionNumber < 1 ||
+            sectionNumber > this.totalSections
+          ) {
+            return;
+          }
+
+          if (sectionNumber === this.currentSection) {
+            return; // Already on this section
+          }
+
+          this.isTransitioning = true;
+          this.disableNavigation();
+
+          const currentSectionEl = document.getElementById(
+            `section-${this.currentSection}`
+          );
+          const newSectionEl = document.getElementById(
+            `section-${sectionNumber}`
+          );
+
+          if (!currentSectionEl || !newSectionEl) {
+            this.isTransitioning = false;
+            this.enableNavigation();
+            return;
+          }
+
+          // Start fade out animation for current section
+          currentSectionEl.classList.add("transitioning", "fade-out");
+
+          // Prepare new section for fade in
+          newSectionEl.style.display = "flex";
+          newSectionEl.classList.add("transitioning");
+
+          // Use requestAnimationFrame for smooth animation
+          requestAnimationFrame(() => {
+            // After a short delay, start fade in animation
+            setTimeout(() => {
+              currentSectionEl.classList.remove("active");
+              newSectionEl.classList.add("active", "fade-in");
+
+              // Complete transition after animation duration
+              setTimeout(() => {
+                this.completeTransition(
+                  currentSectionEl,
+                  newSectionEl,
+                  sectionNumber
+                );
+              }, this.animationDuration);
+            }, 50);
+          });
+        }
+
+        completeTransition(oldSection, newSection, sectionNumber) {
+          // Clean up old section
+          oldSection.classList.remove("transitioning", "fade-out");
+          oldSection.style.display = "none";
+
+          // Clean up new section
+          newSection.classList.remove("transitioning", "fade-in");
+
+          // Update current section
+          this.currentSection = sectionNumber;
+
+          // Re-enable navigation and update buttons
+          this.isTransitioning = false;
+          this.enableNavigation();
+          this.updateNavigationButtons();
+
+          // Restart animations for the new section
+          this.restartSectionAnimations(newSection);
+        }
+
+        restartSectionAnimations(sectionEl) {
+          // Find all animated elements and restart their animations
+          const animatedElements = sectionEl.querySelectorAll(
+            ".romantic-phrase, .question-card, .error-item, .apology-card"
+          );
+          animatedElements.forEach((el) => {
+            el.style.animation = "none";
+            el.offsetHeight; // Trigger reflow
+            el.style.animation = null;
+          });
+        }
+
+        nextSection() {
+          if (this.currentSection < this.totalSections) {
+            this.showSection(this.currentSection + 1);
+          }
+        }
+
+        previousSection() {
+          if (this.currentSection > 1) {
+            this.showSection(this.currentSection - 1);
+          }
+        }
+
+        disableNavigation() {
+          const allButtons = document.querySelectorAll(
+            ".next-arrow, .nav-button"
+          );
+          allButtons.forEach((btn) => {
+            btn.disabled = true;
+            btn.style.pointerEvents = "none";
+            btn.style.opacity = "0.7";
+          });
+        }
+
+        enableNavigation() {
+          const allButtons = document.querySelectorAll(
+            ".next-arrow, .nav-button"
+          );
+          allButtons.forEach((btn) => {
+            btn.disabled = false;
+            btn.style.pointerEvents = "auto";
+            btn.style.opacity = "1";
+          });
+          this.updateNavigationButtons();
+        }
+
+        updateNavigationButtons() {
+          const backButtons = document.querySelectorAll(".back-button");
+          const nextButtons = document.querySelectorAll(
+            ".next-arrow, .nav-button:not(.back-button):not([href='page6.html'])"
+          );
+          const finalButtons = document.querySelectorAll(
+            "a[href='page6.html']"
+          );
+
+          // Handle back buttons
+          backButtons.forEach((btn) => {
+            if (this.currentSection === 1) {
+              btn.style.display = "none";
+            } else {
+              btn.style.display = "inline-block";
+              btn.disabled = false;
+              btn.style.pointerEvents = "auto";
+              btn.style.opacity = "1";
+            }
+          });
+
+          // Handle next buttons (hide on last section)
+          nextButtons.forEach((btn) => {
+            if (this.currentSection === this.totalSections) {
+              btn.style.display = "none";
+            } else {
+              btn.style.display = "inline-block";
+              btn.disabled = false;
+              btn.style.pointerEvents = "auto";
+              btn.style.opacity = "1";
+            }
+          });
+
+          // Handle final button to page6.html (only show on last section)
+          finalButtons.forEach((btn) => {
+            if (this.currentSection === this.totalSections) {
+              btn.style.display = "inline-block";
+              btn.style.pointerEvents = "auto";
+              btn.style.opacity = "1";
+            } else {
+              btn.style.display = "none";
+            }
+          });
+        }
+
+        // Keyboard navigation support
+        handleKeyPress(event) {
+          if (this.isTransitioning) return;
+
+          switch (event.key) {
+            case "ArrowRight":
+            case " ":
+              event.preventDefault();
+              this.nextSection();
+              break;
+            case "ArrowLeft":
+              event.preventDefault();
+              this.previousSection();
+              break;
+          }
+        }
+      }
+
+      // Initialize navigation manager
+      const navigationManager = new NavigationManager();
+
+      // Initialize on page load
+      window.addEventListener("load", function () {
+        navigationManager.updateNavigationButtons();
+
+        // Add keyboard navigation
+        document.addEventListener("keydown", (e) =>
+          navigationManager.handleKeyPress(e)
+        );
+
+        // Smooth page entrance
+        document.body.style.opacity = "0";
+        document.body.style.transition = "opacity 0.5s ease-in-out";
+        setTimeout(() => {
+          document.body.style.opacity = "1";
+        }, 100);
+      });
+
+      // Prevent rapid clicking
+      document.addEventListener(
+        "click",
+        function (e) {
+          if (
+            navigationManager.isTransitioning &&
+            (e.target.classList.contains("nav-button") ||
+              e.target.classList.contains("next-arrow"))
+          ) {
+            e.preventDefault();
+            e.stopPropagation();
+          }
+        },
+        true
+      );
+
+      // Auto-play background music
+      const backgroundMusic = document.getElementById("background-music");
+
+      // Try to start music automatically when page loads
+      window.addEventListener("load", function () {
+        setTimeout(() => {
+          backgroundMusic.play().catch((e) => {
+            console.log(
+              "Auto-play blocked by browser. Music will start on first user interaction."
+            );
+            // Fallback: start music on first user interaction
+            document.addEventListener(
+              "click",
+              function playOnFirstClick() {
+                backgroundMusic.play();
+                document.removeEventListener("click", playOnFirstClick);
+              },
+              { once: true }
+            );
+          });
+        }, 500);
+      });
+    </script>
+  </body>
+</html>

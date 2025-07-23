@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ecos del Pasado - Para Dome ❤️</title>
+    <style>
+      :root {
+        --primary-pastel: #ffe4e6;
+        --secondary-pastel: #e0f2fe;
+        --accent-pastel: #fef3c7;
+        --text-primary: #374151;
+        --text-secondary: #6b7280;
+        --background: #ffffff;
+        --romantic-pink: #f8bbd9;
+        --soft-purple: #e8d5ff;
+        --past-gray: #f3f4f6;
+        --pain-red: #fee2e2;
+        --hope-blue: #dbeafe;
+        --trust-green: #00f878;
+        --loyalty-gold: #fef3c7;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Georgia", serif;
+        background: var(--background);
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 20px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .page {
+        width: 100%;
+        text-align: center;
+        animation: fadeIn 0.8s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .main-header {
+        margin-bottom: 40px;
+      }
+
+      .title {
+        font-size: 2.2rem;
+        font-weight: 400;
+        color: var(--text-primary);
+        margin-bottom: 30px;
+        background: linear-gradient(45deg, #0063f7, #93c5fd);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.3;
+        padding: 0 10px;
+      }
+
+      .echo-section {
+        margin: 40px 0;
+        width: 100%;
+        max-width: 550px;
+      }
+
+      .past-card {
+        background: rgba(254, 226, 226, 0.3);
+        margin: 25px 0;
+        padding: 35px;
+        border-radius: 20px;
+        border-left: 5px solid var(--pain-red);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        animation: slideInEcho 1s ease-out;
+        position: relative;
+        text-align: left;
+      }
+
+      .past-card::before {
+        content: "💔";
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 2em;
+        animation: brokenHeart 4s ease-in-out infinite;
+      }
+
+      @keyframes brokenHeart {
+        0%,
+        100% {
+          opacity: 0.6;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.1);
+        }
+      }
+
+      .past-text {
+        font-size: 1.1rem;
+        color: var(--text-primary);
+        line-height: 1.7;
+        text-align: center;
+        margin-bottom: 25px;
+      }
+
+      .pain-acknowledgment {
+        background: rgba(243, 244, 246, 0.6);
+        padding: 25px;
+        border-radius: 15px;
+        border-left: 4px solid var(--past-gray);
+        margin: 25px 0;
+        position: relative;
+      }
+
+      .pain-acknowledgment::before {
+        content: "😔";
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 1.5em;
+      }
+
+      .pain-text {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        text-align: center;
+        font-style: italic;
+      }
+
+      .difference-section {
+        background: rgba(219, 234, 254, 0.4);
+        padding: 30px;
+        border-radius: 20px;
+        border: 3px solid rgba(219, 234, 254, 0.7);
+        margin: 30px 0;
+        position: relative;
+      }
+
+      .difference-section::before {
+        content: "✨";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 2em;
+        animation: sparkle 3s ease-in-out infinite;
+      }
+
+      @keyframes sparkle {
+        0%,
+        100% {
+          opacity: 0.7;
+          transform: rotate(0deg) scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: rotate(180deg) scale(1.2);
+        }
+      }
+
+      .difference-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        text-align: center;
+        margin-bottom: 20px;
+        margin-left: 40px;
+      }
+
+      .difference-text {
+        font-size: 1.1rem;
+        color: var(--text-primary);
+        line-height: 1.7;
+        text-align: center;
+        margin-left: 40px;
+      }
+
+      .loyalty-declaration {
+        background: rgba(209, 250, 229, 0.4);
+        padding: 35px;
+        border-radius: 20px;
+        border: 3px solid rgba(209, 250, 229, 0.7);
+        margin: 35px 0;
+        position: relative;
+      }
+
+      .loyalty-declaration::before {
+        content: "🐕";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 2em;
+        animation: puppyLove 2s ease-in-out infinite;
+      }
+
+      @keyframes puppyLove {
+        0%,
+        100% {
+          transform: scale(1) rotate(-5deg);
+        }
+        50% {
+          transform: scale(1.1) rotate(5deg);
+        }
+      }
+
+      .loyalty-text {
+        font-size: 1.2rem;
+        color: var(--text-primary);
+        line-height: 1.7;
+        text-align: center;
+        margin-left: 40px;
+        font-weight: 500;
+      }
+
+      .never-section {
+        background: rgba(254, 243, 199, 0.4);
+        padding: 30px;
+        border-radius: 20px;
+        border: 3px solid rgba(254, 243, 199, 0.8);
+        margin: 30px 0;
+        position: relative;
+      }
+
+      .never-section::before {
+        content: "🚫";
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 2em;
+        animation: strongNo 3s ease-in-out infinite;
+      }
+
+      @keyframes strongNo {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        25%,
+        75% {
+          transform: scale(1.1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+      }
+
+      .never-title {
+        font-size: 1.3rem;
+        font-weight: 800;
+        color: #dc2626;
+        text-align: center;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .never-text {
+        font-size: 1.1rem;
+        color: var(--text-primary);
+        line-height: 1.6;
+        text-align: center;
+      }
+
+      .emphasis {
+        color: var(--romantic-pink);
+        font-weight: 700;
+      }
+
+      .strong-emphasis {
+        color: var(--hope-blue);
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .loyalty-emphasis {
+        color: var(--trust-green);
+        font-weight: 700;
+      }
+
+      .never-emphasis {
+        color: #dc2626;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      @keyframes slideInEcho {
+        from {
+          opacity: 0;
+          transform: translateY(40px) scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .navigation-section {
+        margin-top: 40px;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .nav-button {
+        background: linear-gradient(
+          45deg,
+          var(--romantic-pink),
+          var(--soft-purple)
+        );
+        border: none;
+        border-radius: 25px;
+        padding: 12px 24px;
+        font-size: 1rem;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .nav-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .nav-button:active {
+        transform: scale(0.95);
+      }
+
+      .back-button {
+        background: linear-gradient(
+          45deg,
+          var(--secondary-pastel),
+          var(--accent-pastel)
+        );
+        color: var(--text-primary);
+      }
+
+      /* Responsive para móviles pequeños */
+      @media (max-width: 320px) {
+        .title {
+          font-size: 1.8rem;
+        }
+
+        .past-card {
+          padding: 25px;
+        }
+
+        .difference-section {
+          padding: 25px;
+        }
+
+        .difference-title {
+          font-size: 1.2rem;
+          margin-left: 30px;
+        }
+
+        .difference-text {
+          margin-left: 30px;
+        }
+
+        .loyalty-text {
+          margin-left: 30px;
+        }
+
+        .navigation-section {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="page">
+        <header class="main-header">
+          <h1 class="title">Ecos del Pasado</h1>
+        </header>
+
+        <section class="echo-section">
+          <div class="past-card">
+            <p class="past-text">
+              Sé que no soy tu primera relación, y que tienes un pasado. Rogaste
+              por amor, dabas todo de ti, y esa persona lo único que hizo fue
+              engañarte.
+            </p>
+
+            <div class="pain-acknowledgment">
+              <p class="pain-text">Es triste, pero yo no soy él...</p>
+            </div>
+
+            <div class="difference-section">
+              <div class="difference-title">Soy muy diferente</div>
+
+              <p class="difference-text">
+                Tal vez crees que todos los hombres son iguales, pero no es
+                verdad. A veces tienes suerte de conocer buenas personas, y
+                <span class="emphasis">yo me considero una de esas</span>.
+              </p>
+            </div>
+
+            <p class="past-text">
+              Si no cumplí tus expectativas, lo arruiné un par de veces, pero
+              créeme que
+              <span class="loyalty-emphasis">aprecié tu amor como loco</span>,
+              di lo que más pude.
+            </p>
+
+            <div class="loyalty-declaration">
+              <p class="loyalty-text">
+                Y estoy atrás de ti,
+                <span class="emphasis">como perrito 😼</span>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="never-section">
+          <div class="never-title">Y engañar, JAMÁS</div>
+
+          <p class="never-text">
+            En serio,
+            <span class="never-emphasis"
+              >engañar es lo peor que puedes hacer</span
+            >. Sí, cometí errores, pero
+            <span class="never-emphasis">jamás te haría eso</span>.
+          </p>
+        </section>
+
+        <section class="navigation-section">
+          <a href="page5.html" class="nav-button back-button">← Regresar</a>
+          <a href="page6.html" class="nav-button">Continuar →</a>
+        </section>
+      </div>
+    </div>
+
+    <script>
+      // Efecto de entrada suave al cargar la página
+      window.addEventListener("load", function () {
+        document.body.style.opacity = "0";
+        document.body.style.transition = "opacity 0.5s ease-in-out";
+        setTimeout(() => {
+          document.body.style.opacity = "1";
+        }, 100);
+      });
+    </script>
+  </body>
+</html>

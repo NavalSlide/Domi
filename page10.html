@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Qué Me Hace Diferente - Para Dome ❤️</title>
+    <style>
+      :root {
+        --primary-pastel: #ffe4e6;
+        --secondary-pastel: #e0f2fe;
+        --accent-pastel: #fef3c7;
+        --text-primary: #374151;
+        --text-secondary: #6b7280;
+        --background: #ffffff;
+        --romantic-pink: #f8bbd9;
+        --soft-purple: #e8d5ff;
+        --truth-blue: #dbeafe;
+        --change-green: #d1fae5;
+        --different-gold: #fef3c7;
+        --sincere-red: #fee2e2;
+        --regret-purple: #f3e8ff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Georgia", serif;
+        background: var(--background);
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 20px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .page {
+        width: 100%;
+        text-align: center;
+        animation: fadeIn 0.8s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .main-header {
+        margin-bottom: 40px;
+      }
+
+      .title {
+        font-size: 2.1rem;
+        font-weight: 400;
+        color: var(--text-primary);
+        margin-bottom: 30px;
+        background: linear-gradient(
+          45deg,
+          var(--different-gold),
+          var(--truth-blue)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.3;
+        padding: 0 10px;
+      }
+
+      .difference-section {
+        margin: 40px 0;
+        width: 100%;
+        max-width: 550px;
+      }
+
+      .truth-card {
+        background: rgba(219, 234, 254, 0.3);
+        margin: 25px 0;
+        padding: 35px;
+        border-radius: 20px;
+        border-left: 5px solid var(--truth-blue);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        animation: slideInTruth 1s ease-out;
+        position: relative;
+        text-align: left;
+      }
+
+      .truth-card::before {
+        content: "🙏";
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 2em;
+        animation: prayerPulse 3s ease-in-out infinite;
+      }
+
+      @keyframes prayerPulse {
+        0%,
+        100% {
+          opacity: 0.8;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.2);
+        }
+      }
+
+      .truth-text {
+        font-size: 1.1rem;
+        color: var(--text-primary);
+        line-height: 1.7;
+        text-align: center;
+        margin-bottom: 25px;
+      }
+
+      .frustration-section {
+        background: rgba(243, 232, 255, 0.4);
+        padding: 25px;
+        border-radius: 15px;
+        border-left: 4px solid var(--regret-purple);
+        margin: 25px 0;
+        position: relative;
+      }
+
+      .frustration-section::before {
+        content: "😔";
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 1.5em;
+      }
+
+      .frustration-text {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        text-align: center;
+        font-style: italic;
+      }
+
+      .change-section {
+        background: rgba(209, 250, 229, 0.4);
+        padding: 30px;
+        border-radius: 20px;
+        border: 3px solid rgba(209, 250, 229, 0.7);
+        margin: 30px 0;
+        position: relative;
+      }
+
+      .change-section::before {
+        content: "🔄";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 2em;
+        animation: changeRotate 4s ease-in-out infinite;
+      }
+
+      @keyframes changeRotate {
+        0%,
+        100% {
+          transform: rotate(0deg);
+        }
+        50% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .change-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        text-align: center;
+        margin-bottom: 20px;
+        margin-left: 40px;
+      }
+
+      .change-text {
+        font-size: 1.1rem;
+        color: var(--text-primary);
+        line-height: 1.7;
+        text-align: center;
+        margin-left: 40px;
+      }
+
+      .change-list {
+        list-style: none;
+        padding: 0;
+        margin: 20px 0;
+      }
+
+      .change-item {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        margin: 10px 0;
+        padding-left: 25px;
+        position: relative;
+        line-height: 1.5;
+        text-align: left;
+      }
+
+      .change-item::before {
+        content: "💚";
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 1em;
+      }
+
+      .different-section {
+        background: rgba(254, 243, 199, 0.4);
+        padding: 35px;
+        border-radius: 20px;
+        border: 3px solid rgba(254, 243, 199, 0.8);
+        margin: 35px 0;
+        position: relative;
+      }
+
+      .different-section::before {
+        content: "⭐";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 2em;
+        animation: starShine 3s ease-in-out infinite;
+      }
+
+      @keyframes starShine {
+        0%,
+        100% {
+          opacity: 0.7;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.3);
+        }
+      }
+
+      .different-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        text-align: center;
+        margin-bottom: 20px;
+        margin-left: 40px;
+      }
+
+      .different-text {
+        font-size: 1.1rem;
+        color: var(--text-primary);
+        line-height: 1.7;
+        text-align: center;
+        margin-left: 40px;
+      }
+
+      .sincere-love-section {
+        background: rgba(254, 226, 226, 0.4);
+        padding: 35px;
+        border-radius: 20px;
+        border: 3px solid rgba(254, 226, 226, 0.7);
+        margin: 35px 0;
+        position: relative;
+      }
+
+      .sincere-love-section::before {
+        content: "❤️";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 2em;
+        animation: heartbeat 2s ease-in-out infinite;
+      }
+
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        25%,
+        75% {
+          transform: scale(1.1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+      }
+
+      .sincere-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        text-align: center;
+        margin-bottom: 20px;
+        margin-left: 40px;
+      }
+
+      .sincere-text {
+        font-size: 1.1rem;
+        color: var(--text-primary);
+        line-height: 1.7;
+        text-align: center;
+        margin-left: 40px;
+      }
+
+      .regret-section {
+        background: rgba(243, 232, 255, 0.4);
+        padding: 25px;
+        border-radius: 15px;
+        border-left: 4px solid var(--regret-purple);
+        margin: 25px 0;
+        position: relative;
+      }
+
+      .regret-section::before {
+        content: "💔";
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 1.5em;
+      }
+
+      .regret-text {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        text-align: center;
+        font-style: italic;
+      }
+
+      .emphasis {
+        color: #e91e63;
+        font-weight: 700;
+      }
+
+      .strong-emphasis {
+        color: #1976d2;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .change-emphasis {
+        color: #388e3c;
+        font-weight: 700;
+      }
+
+      .different-emphasis {
+        color: #f57c00;
+        font-weight: 800;
+      }
+
+      .sincere-emphasis {
+        color: #d32f2f;
+        font-weight: 700;
+      }
+
+      .promise-section {
+        background: rgba(209, 250, 229, 0.4);
+        padding: 35px;
+        border-radius: 20px;
+        border: 3px solid rgba(209, 250, 229, 0.8);
+        margin: 35px 0;
+        position: relative;
+      }
+
+      .promise-section::before {
+        content: '🤝';
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 2em;
+        animation: promiseShake 3s ease-in-out infinite;
+      }
+
+      @keyframes promiseShake {
+        0%, 100% { transform: rotate(-5deg) scale(1); }
+        50% { transform: rotate(5deg) scale(1.1); }
+      }
+
+      .promise-title {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--text-primary);
+        text-align: center;
+        margin-bottom: 20px;
+        margin-left: 40px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .promise-intro {
+        font-size: 1.2rem;
+        color: var(--text-primary);
+        line-height: 1.7;
+        text-align: center;
+        margin-left: 40px;
+        margin-bottom: 25px;
+      }
+
+      .promise-list {
+        list-style: none;
+        padding: 0;
+        margin: 25px 0;
+      }
+
+      .promise-item {
+        font-size: 1rem;
+        color: var(--text-primary);
+        margin: 12px 0;
+        padding-left: 30px;
+        position: relative;
+        line-height: 1.5;
+        text-align: left;
+      }
+
+      .promise-item::before {
+        content: '✅';
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 1.1em;
+      }
+
+      .final-promise {
+        background: rgba(76, 175, 80, 0.1);
+        padding: 20px;
+        border-radius: 15px;
+        border-left: 4px solid #4CAF50;
+        margin-top: 25px;
+        position: relative;
+      }
+
+      .final-promise::before {
+        content: '💪';
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 1.3em;
+      }
+
+      .final-promise-text {
+        font-size: 1.1rem;
+        color: var(--text-primary);
+        line-height: 1.6;
+        text-align: center;
+        font-weight: 500;
+      }
+
+      .promise-emphasis {
+        color: #4CAF50;
+        font-weight: 800;
+      }
+
+      .determination-emphasis {
+        color: #2E7D32;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      @keyframes slideInTruth {
+        from {
+          opacity: 0;
+          transform: translateY(40px) scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .navigation-section {
+        margin-top: 40px;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .nav-button {
+        background: linear-gradient(
+          45deg,
+          var(--romantic-pink),
+          var(--soft-purple)
+        );
+        border: none;
+        border-radius: 25px;
+        padding: 12px 24px;
+        font-size: 1rem;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .nav-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .nav-button:active {
+        transform: scale(0.95);
+      }
+
+      .back-button {
+        background: linear-gradient(
+          45deg,
+          var(--secondary-pastel),
+          var(--accent-pastel)
+        );
+        color: var(--text-primary);
+      }
+
+      /* Responsive para móviles pequeños */
+      @media (max-width: 320px) {
+        .title {
+          font-size: 1.8rem;
+        }
+
+        .truth-card {
+          padding: 25px;
+        }
+
+        .change-section {
+          padding: 25px;
+        }
+
+        .change-title {
+          font-size: 1.2rem;
+          margin-left: 30px;
+        }
+
+        .change-text {
+          margin-left: 30px;
+        }
+
+        .different-text {
+          margin-left: 30px;
+        }
+
+        .sincere-text {
+          margin-left: 30px;
+        }
+
+        .navigation-section {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="page">
+        <header class="main-header">
+          <h1 class="title">Qué Me Hace Diferente</h1>
+        </header>
+
+        <section class="difference-section">
+          <div class="truth-card">
+            <p class="truth-text">
+              <span class="strong-emphasis">Jamás te miento</span>, te juro que
+              todo lo que digo es verdad. Te lo juro por Dios, Domenica.
+            </p>
+
+            <div class="frustration-section">
+              <p class="frustration-text">¿Por qué te es tan difícil creer? 😔</p>
+            </div>
+          </div>
+
+          <div class="change-section">
+            <div class="change-title">¿Quieres que cambie?</div>
+
+            <p class="change-text">
+              <span class="change-emphasis">Cambiaría todo por ti</span>, si me
+              lo pides:
+            </p>
+
+            <ul class="change-list">
+              <li class="change-item">
+                ¿Quieres que sea más chicloso? Lo haré
+              </li>
+              <li class="change-item">
+                ¿Quieres que sea más gracioso? Lo haré
+              </li>
+              <li class="change-item">
+                ¿Quieres que esté para ti 24/7 aunque me llamen la atención? Lo
+                haré
+              </li>
+            </ul>
+
+            <p class="change-text">
+              <span class="emphasis">Solo pídemelo</span>
+            </p>
+          </div>
+
+          <div class="different-section">
+            <div class="different-title">
+              Yo no soy el típico adolescente estúpido
+            </div>
+
+            <p class="different-text">
+              Cometí errores sí... pero tampoco te utilizaría a ti para
+              lastimarte, engañarte, o por estatus.
+              <span class="different-emphasis">Nada que ver</span> yo con los
+              típicos hombres,
+              <span class="different-emphasis">soy alguien diferente</span>.
+            </p>
+          </div>
+
+          <div class="sincere-love-section">
+            <div class="sincere-title">Mi amor fue sincero</div>
+
+            <p class="sincere-text">
+              Como dije, <span class="sincere-emphasis">no mentí</span>, todo lo
+              que te dije era verdad. Aunque eran puros videos de TikTok, era
+              verdad lo que decían, porque
+              <span class="emphasis">realmente te amé</span>...
+            </p>
+
+            <div class="regret-section">
+              <p class="regret-text">
+                Pero no lo supe valorar, y lo arruiné todo...
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="navigation-section">
+          <a href="page9.html" class="nav-button back-button">← Regresar</a>
+          <a href="page11.html" class="nav-button">Continuar →</a>
+        </section>
+      </div>
+    </div>
+
+    <!-- Audio de fondo -->
+    <audio id="backgroundMusic" loop>
+      <source
+        src="songs/Justin Bieber - Ghost.mp3"
+        type="audio/mpeg"
+      />
+      Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <script>
+      // Efecto de entrada suave al cargar la página
+      window.addEventListener("load", function () {
+        document.body.style.opacity = "0";
+        document.body.style.transition = "opacity 0.5s ease-in-out";
+
+        // Reproducir música de fondo
+        const audio = document.getElementById("backgroundMusic");
+        audio.volume = 0.3; // Volumen al 30% para que no sea muy fuerte
+
+        // Intentar reproducir la música (algunos navegadores requieren interacción del usuario)
+        audio.play().catch(function (error) {
+          console.log(
+            "La reproducción automática fue bloqueada. El usuario debe interactuar primero."
+          );
+          // Agregar evento para reproducir cuando el usuario haga clic en cualquier parte
+          document.addEventListener(
+            "click",
+            function () {
+              audio.play();
+            },
+            { once: true }
+          );
+        });
+
+        setTimeout(() => {
+          document.body.style.opacity = "1";
+        }, 100);
+      });
+    </script>
+  </body>
+</html>

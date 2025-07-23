@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi Historia Contigo - Para Dome ❤️</title>
+    <style>
+      :root {
+        --primary-pastel: #ffe4e6;
+        --secondary-pastel: #e0f2fe;
+        --accent-pastel: #fef3c7;
+        --text-primary: #374151;
+        --text-secondary: #6b7280;
+        --background: #ffffff;
+        --romantic-pink: #f8bbd9;
+        --soft-purple: #e8d5ff;
+        --memory-gold: #ffcc00;
+        --heart-red: #fee2e2;
+        --sunshine-yellow: #fef08a;
+        --love-at-first-sight: #fecaca;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Georgia", serif;
+        background: var(--background);
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 20px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .page {
+        width: 100%;
+        text-align: center;
+        animation: fadeIn 0.8s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .main-header {
+        margin-bottom: 40px;
+      }
+
+      .title {
+        font-size: 2rem;
+        font-weight: 400;
+        color: var(--text-primary);
+        margin-bottom: 15px;
+        background: linear-gradient(
+          45deg,
+          var(--memory-gold),
+          var(--romantic-pink)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.3;
+        padding: 0 10px;
+      }
+
+      .subtitle {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        font-style: italic;
+        margin-bottom: 30px;
+      }
+
+      .memory-section {
+        margin: 40px 0;
+        width: 100%;
+        max-width: 500px;
+      }
+
+      .memory-card {
+        background: rgba(254, 243, 199, 0.3);
+        margin: 25px 0;
+        padding: 35px;
+        border-radius: 20px;
+        border-left: 5px solid var(--memory-gold);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        animation: slideInMemory 1s ease-out;
+        position: relative;
+        text-align: left;
+      }
+
+      .memory-card::before {
+        content: "📅";
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 1.8em;
+      }
+
+      .date-time {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        text-align: center;
+        margin-bottom: 25px;
+        background: rgba(254, 243, 199, 0.6);
+        padding: 15px;
+        border-radius: 15px;
+      }
+
+      .memory-text {
+        font-size: 1.1rem;
+        color: var(--text-primary);
+        line-height: 1.7;
+        text-align: center;
+        margin-bottom: 25px;
+      }
+
+      .thought-bubble {
+        background: rgba(219, 234, 254, 0.4);
+        padding: 20px;
+        border-radius: 20px;
+        border-left: 4px solid var(--secondary-pastel);
+        margin: 20px 0;
+        position: relative;
+        font-style: italic;
+      }
+
+      .thought-bubble::before {
+        content: "💭";
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 1.3em;
+      }
+
+      .thought-text {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        text-align: center;
+        margin-right: 30px;
+      }
+
+      .photo-section {
+        margin: 30px 0;
+        position: relative;
+      }
+
+      .photo-container {
+        position: relative;
+        display: inline-block;
+        border-radius: 20px;
+        overflow: hidden;
+        animation: frameGlow 3s ease-in-out infinite;
+        border: 3px solid transparent;
+        background: linear-gradient(45deg, #ffd700, #ffa500, #ffd700, #ffff00)
+          border-box;
+        background-clip: padding-box;
+      }
+
+      @keyframes frameGlow {
+        0%,
+        100% {
+          box-shadow: 0 0 20px rgba(255, 215, 0, 0.6),
+            0 0 40px rgba(255, 215, 0, 0.4), 0 0 60px rgba(255, 215, 0, 0.2),
+            inset 0 0 20px rgba(255, 215, 0, 0.1);
+          border: 3px solid rgba(255, 215, 0, 0.8);
+        }
+        50% {
+          box-shadow: 0 0 30px rgba(255, 215, 0, 0.9),
+            0 0 60px rgba(255, 215, 0, 0.7), 0 0 90px rgba(255, 215, 0, 0.4),
+            inset 0 0 30px rgba(255, 215, 0, 0.2);
+          border: 3px solid rgba(255, 215, 0, 1);
+          transform: scale(1.02);
+        }
+      }
+
+      .memory-photo {
+        width: 280px;
+        height: 350px;
+        object-fit: cover;
+        border-radius: 17px;
+        animation: sunlightGlow 4s ease-in-out infinite;
+      }
+
+      @keyframes sunlightGlow {
+        0%,
+        100% {
+          filter: brightness(1.05)
+            drop-shadow(0 0 15px rgba(254, 240, 138, 0.4));
+        }
+        50% {
+          filter: brightness(1.15)
+            drop-shadow(0 0 25px rgba(254, 240, 138, 0.7));
+        }
+      }
+
+      .sunshine-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+          circle at center,
+          rgba(254, 240, 138, 0.2) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+        animation: sunRays 6s ease-in-out infinite;
+      }
+
+      .love-text-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 2rem;
+        font-weight: 800;
+        letter-spacing: 3px;
+        pointer-events: none;
+        z-index: 10;
+        text-align: center;
+      }
+
+      .word {
+        display: inline-block;
+        margin: 0 8px;
+        opacity: 0;
+        color: #ff0000;
+        text-shadow: 0 0 10px rgba(255, 0, 0, 0.8),
+          0 0 20px rgba(255, 0, 0, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.8);
+        transform: scale(0);
+        transition: all 0.8s ease-in-out;
+      }
+
+      .word.show {
+        opacity: 1;
+        transform: scale(1);
+        animation: redGlow 1s ease-in-out;
+      }
+
+      .word.hide {
+        opacity: 0;
+        transform: scale(0.8);
+        transition: all 0.5s ease-in-out;
+      }
+
+      @keyframes redGlow {
+        0% {
+          text-shadow: 0 0 10px rgba(255, 0, 0, 0.8),
+            0 0 20px rgba(255, 0, 0, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        50% {
+          text-shadow: 0 0 20px rgba(255, 0, 0, 1),
+            0 0 30px rgba(255, 0, 0, 0.8), 0 0 40px rgba(255, 0, 0, 0.6),
+            2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        100% {
+          text-shadow: 0 0 10px rgba(255, 0, 0, 0.8),
+            0 0 20px rgba(255, 0, 0, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+      }
+
+      @keyframes sunRays {
+        0%,
+        100% {
+          opacity: 0.3;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.6;
+          transform: scale(1.05);
+        }
+      }
+
+      .first-sight-section {
+        background: rgba(254, 202, 202, 0.3);
+        padding: 30px;
+        border-radius: 20px;
+        border: 3px solid rgba(254, 202, 202, 0.6);
+        margin: 30px 0;
+        position: relative;
+      }
+
+      .first-sight-section::before {
+        content: "😍";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 2em;
+        animation: heartEyes 3s ease-in-out infinite;
+      }
+
+      @keyframes heartEyes {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+      }
+
+      .first-sight-text {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        text-align: center;
+        line-height: 1.6;
+        margin-left: 50px;
+      }
+
+      .heartbeat-section {
+        background: rgba(254, 226, 226, 0.4);
+        padding: 25px;
+        border-radius: 15px;
+        border-left: 4px solid var(--heart-red);
+        margin: 25px 0;
+        position: relative;
+      }
+
+      .heartbeat-section::before {
+        content: "💓";
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 1.5em;
+        animation: heartbeat 1.5s ease-in-out infinite;
+      }
+
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.3);
+        }
+      }
+
+      .heartbeat-text {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        text-align: center;
+        font-style: italic;
+      }
+
+      .emphasis {
+        color: var(--romantic-pink);
+        font-weight: 700;
+      }
+
+      .special-emphasis {
+        color: var(--memory-gold);
+        font-weight: 600;
+        font-style: italic;
+      }
+
+      @keyframes slideInMemory {
+        from {
+          opacity: 0;
+          transform: translateY(40px) scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .navigation-section {
+        margin-top: 40px;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .nav-button {
+        background: linear-gradient(
+          45deg,
+          var(--romantic-pink),
+          var(--soft-purple)
+        );
+        border: none;
+        border-radius: 25px;
+        padding: 12px 24px;
+        font-size: 1rem;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .nav-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .nav-button:active {
+        transform: scale(0.95);
+      }
+
+      .back-button {
+        background: linear-gradient(
+          45deg,
+          var(--secondary-pastel),
+          var(--accent-pastel)
+        );
+        color: var(--text-primary);
+      }
+
+      /* Responsive para móviles pequeños */
+      @media (max-width: 320px) {
+        .title {
+          font-size: 1.7rem;
+        }
+
+        .memory-card {
+          padding: 25px;
+        }
+
+        .memory-photo {
+          width: 240px;
+          height: 300px;
+        }
+
+        .first-sight-text {
+          font-size: 1.1rem;
+          margin-left: 35px;
+        }
+
+        .navigation-section {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="page">
+        <header class="main-header">
+          <h1 class="title">Mi Historia Contigo</h1>
+          <p class="subtitle">1/? - El Primer Encuentro</p>
+        </header>
+
+        <section class="memory-section">
+          <div class="memory-card">
+            <div class="date-time">14 de Mayo - 3:20 PM</div>
+
+            <p class="memory-text">
+              Lo recuerdo bien, nos conocimos un
+              <span class="special-emphasis">14 de mayo a las 3:20 por ahí</span
+              >. Sinceramente cuando me dijeron que me buscaba alguien, mi mente
+              decía:
+            </p>
+
+            <div class="thought-bubble">
+              <p class="thought-text">
+                "AAAA qué pereza hablar con otra chica"
+              </p>
+            </div>
+
+            <p class="memory-text">Pero luego te vi a ti...</p>
+
+            <div class="photo-section">
+              <div class="photo-container">
+                <img
+                  src="Dome2.jpeg"
+                  alt="Dome - Primer encuentro"
+                  class="memory-photo"
+                />
+                <div class="sunshine-overlay"></div>
+                <div class="love-text-overlay" id="loveText">
+                  <span class="word">THE</span>
+                  <span class="word">LOOK</span>
+                  <span class="word">OF</span>
+                  <span class="word">LOVE</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="first-sight-section">
+              <p class="first-sight-text">
+                Y mi mente dijo:
+                <span class="emphasis">"Qué hermosa chica, wow"</span>
+              </p>
+            </div>
+
+            <div class="heartbeat-section">
+              <p class="heartbeat-text">
+                Mi corazón empezaba a latir fuerte, y no sabía qué era. Fue
+                <span class="emphasis">atracción inmediata</span>.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="navigation-section">
+          <a href="page6.html" class="nav-button back-button">← Regresar</a>
+          <a href="page8.html" class="nav-button">Continuar →</a>
+        </section>
+      </div>
+    </div>
+
+    <!-- Audio de fondo -->
+    <audio id="backgroundMusic" loop>
+      <source src="songs/No (mp3cut.net).mp3" type="audio/mpeg" />
+      Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <script>
+      // Efecto de entrada suave al cargar la página
+      window.addEventListener("load", function () {
+        document.body.style.opacity = "0";
+        document.body.style.transition = "opacity 0.5s ease-in-out";
+
+        // Reproducir música de fondo
+        const audio = document.getElementById("backgroundMusic");
+        const loveText = document.getElementById("loveText");
+        audio.volume = 0.3; // Volumen al 30% para que no sea muy fuerte
+
+        // Función para mostrar el texto "THE LOOK OF LOVE" palabra por palabra a los 27 segundos
+        function setupTextSync() {
+          const words = document.querySelectorAll(".word");
+          let wordAnimationStarted = false;
+
+          audio.addEventListener("timeupdate", function () {
+            // Comenzar animación a los 27 segundos (22 + 5)
+            if (audio.currentTime >= 27 && !wordAnimationStarted) {
+              wordAnimationStarted = true;
+
+              // Mostrar cada palabra con delay
+              words.forEach((word, index) => {
+                setTimeout(() => {
+                  word.classList.add("show");
+                }, index * 800); // 800ms entre cada palabra
+              });
+
+              // Ocultar todas las palabras después de 5 segundos
+              setTimeout(() => {
+                words.forEach((word) => {
+                  word.classList.remove("show");
+                  word.classList.add("hide");
+                });
+              }, 5000); // 5 segundos después de que aparezca la primera palabra
+            }
+          });
+        }
+
+        // Intentar reproducir la música (algunos navegadores requieren interacción del usuario)
+        audio
+          .play()
+          .then(function () {
+            setupTextSync();
+          })
+          .catch(function (error) {
+            console.log(
+              "La reproducción automática fue bloqueada. El usuario debe interactuar primero."
+            );
+            // Agregar evento para reproducir cuando el usuario haga clic en cualquier parte
+            document.addEventListener(
+              "click",
+              function () {
+                audio.play().then(function () {
+                  setupTextSync();
+                });
+              },
+              { once: true }
+            );
+          });
+
+        setTimeout(() => {
+          document.body.style.opacity = "1";
+        }, 100);
+      });
+    </script>
+  </body>
+</html>

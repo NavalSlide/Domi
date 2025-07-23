@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voy a ser mejor - Para Dome ❤️</title>
+    <style>
+        :root {
+            --primary-pastel: #FFE4E6;
+            --secondary-pastel: #E0F2FE;
+            --accent-pastel: #FEF3C7;
+            --text-primary: #374151;
+            --text-secondary: #6B7280;
+            --background: #FFFFFF;
+            --romantic-pink: #F8BBD9;
+            --soft-purple: #E8D5FF;
+            --promise-green: #D1FAE5;
+            --commitment-blue: #DBEAFE;
+            --determination-gold: #FEF3C7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 100%;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .page {
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .main-header {
+            margin-bottom: 40px;
+        }
+
+        .title {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, var(--promise-green), var(--commitment-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.3;
+            padding: 0 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .promise-section {
+            margin: 40px 0;
+            width: 100%;
+            max-width: 550px;
+        }
+
+        .promise-card {
+            background: rgba(209, 250, 229, 0.4);
+            margin: 25px 0;
+            padding: 40px;
+            border-radius: 20px;
+            border: 3px solid rgba(209, 250, 229, 0.8);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: slideInPromise 1s ease-out;
+            position: relative;
+            text-align: left;
+        }
+
+        .promise-card::before {
+            content: '🤝';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2.5em;
+            animation: promiseShake 3s ease-in-out infinite;
+        }
+
+        @keyframes promiseShake {
+            0%, 100% { transform: rotate(-5deg) scale(1); }
+            50% { transform: rotate(5deg) scale(1.1); }
+        }
+
+        .promise-intro {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-align: center;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .promise-list {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0;
+        }
+
+        .promise-item {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin: 15px 0;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .promise-item::before {
+            content: '✅';
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.2em;
+            animation: checkPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes checkPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .final-commitment {
+            background: rgba(219, 234, 254, 0.4);
+            padding: 30px;
+            border-radius: 20px;
+            border: 3px solid rgba(219, 234, 254, 0.8);
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .final-commitment::before {
+            content: '💪';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 2em;
+            animation: strengthPulse 2.5s ease-in-out infinite;
+        }
+
+        @keyframes strengthPulse {
+            0%, 100% { transform: scale(1) rotate(-10deg); }
+            50% { transform: scale(1.3) rotate(10deg); }
+        }
+
+        .commitment-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.7;
+            text-align: center;
+            margin-left: 40px;
+        }
+
+        .promise-emphasis {
+            color: #4CAF50;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .determination-emphasis {
+            color: #2E7D32;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 1.1em;
+        }
+
+        @keyframes slideInPromise {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .navigation-section {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-button {
+            background: linear-gradient(45deg, var(--romantic-pink), var(--soft-purple));
+            border: none;
+            border-radius: 25px;
+            padding: 12px 24px;
+            font-size: 1rem;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .nav-button:active {
+            transform: scale(0.95);
+        }
+
+        .back-button {
+            background: linear-gradient(45deg, var(--secondary-pastel), var(--accent-pastel));
+            color: var(--text-primary);
+        }
+
+        /* Responsive para móviles pequeños */
+        @media (max-width: 320px) {
+            .title {
+                font-size: 1.8rem;
+            }
+            
+            .promise-card {
+                padding: 30px;
+            }
+            
+            .promise-intro {
+                font-size: 1.2rem;
+            }
+            
+            .promise-item {
+                font-size: 1rem;
+                padding-left: 30px;
+            }
+            
+            .commitment-text {
+                font-size: 1.1rem;
+                margin-left: 30px;
+            }
+            
+            .navigation-section {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="page">
+            <header class="main-header">
+                <h1 class="title">Voy a ser mejor - por ti</h1>
+            </header>
+
+            <section class="promise-section">
+                <div class="promise-card">
+                    <p class="promise-intro">
+                        <span class="promise-emphasis">Prometo con todo mi corazón y mi alma</span> 
+                        que voy a cumplir esto:
+                    </p>
+
+                    <ul class="promise-list">
+                        <li class="promise-item">Estaré 24/7 chateando contigo así sea cualquier estupidez</li>
+                        <li class="promise-item">Llamadas seguido, que importa si no me dejan, las haré contigo</li>
+                        <li class="promise-item">Regalos más seguido, te daré aunque sea un chicle</li>
+                        <li class="promise-item">Tiempo para nosotros, despídete de tus amigas, porque estarás conmigo a solas hablando, si es que tú quieres claro</li>
+                        <li class="promise-item">Serás mi prioridad: siempre estaré pendiente de ti</li>
+                        <li class="promise-item">Jugar jueguitos: para conectar más, jugaré cualquier cosa contigo</li>
+                        <li class="promise-item">Jamás abandonarte: jamás te dejaré sola, nunca de los nunca</li>
+                    </ul>
+
+                    <div class="final-commitment">
+                        <p class="commitment-text">
+                            Lo haré todo esto por ti... <span class="determination-emphasis">Te prometo que haré esto</span>... 
+                            cuando me propongo algo <span class="determination-emphasis">siempre lo hago</span>.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="navigation-section">
+                <a href="page10.html" class="nav-button back-button">← Regresar</a>
+                <a href="page12.html" class="nav-button">Continuar →</a>
+            </section>
+        </div>
+    </div>
+
+    <!-- Audio de fondo -->
+    <audio id="backgroundMusic" loop>
+        <source src="songs/Cuco - Do Better (Official Audio).mp3    " type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <script>
+        // Efecto de entrada suave al cargar la página
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease-in-out';
+            
+            // Reproducir música de fondo
+            const audio = document.getElementById('backgroundMusic');
+            audio.volume = 0.3; // Volumen al 30% para que no sea muy fuerte
+            
+            // Intentar reproducir la música (algunos navegadores requieren interacción del usuario)
+            audio.play().catch(function(error) {
+                console.log('La reproducción automática fue bloqueada. El usuario debe interactuar primero.');
+                // Agregar evento para reproducir cuando el usuario haga clic en cualquier parte
+                document.addEventListener('click', function() {
+                    audio.play();
+                }, { once: true });
+            });
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>

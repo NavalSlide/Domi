@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>¿Por qué a mí? - Para Dome ❤️</title>
+    <style>
+      :root {
+        --primary-pastel: #ffe4e6;
+        --secondary-pastel: #e0f2fe;
+        --accent-pastel: #fef3c7;
+        --text-primary: #374151;
+        --text-secondary: #6b7280;
+        --background: #ffffff;
+        --romantic-pink: #f8bbd9;
+        --soft-purple: #e8d5ff;
+        --choice-gold: #fef3c7;
+        --heart-red: #fee2e2;
+        --special-blue: #dbeafe;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Georgia", serif;
+        background: var(--background);
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 20px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .page {
+        width: 100%;
+        text-align: center;
+        animation: fadeIn 0.8s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .main-header {
+        margin-bottom: 40px;
+      }
+
+      .title {
+        font-size: 2.1rem;
+        font-weight: 400;
+        color: var(--text-primary);
+        margin-bottom: 30px;
+        background: linear-gradient(
+          45deg,
+          var(--choice-gold),
+          var(--romantic-pink)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.3;
+        padding: 0 10px;
+      }
+
+      .answer-intro {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        margin-bottom: 40px;
+        font-style: italic;
+      }
+
+      .choice-section {
+        margin: 40px 0;
+        width: 100%;
+        max-width: 500px;
+      }
+
+      .heart-answer-card {
+        background: rgba(254, 226, 226, 0.3);
+        margin: 25px 0;
+        padding: 35px;
+        border-radius: 20px;
+        border-left: 5px solid var(--heart-red);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        animation: slideInHeart 1s ease-out;
+        position: relative;
+        text-align: left;
+      }
+
+      .heart-answer-card::before {
+        content: "💖";
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 2em;
+        animation: heartGlow 3s ease-in-out infinite;
+      }
+
+      @keyframes heartGlow {
+        0%,
+        100% {
+          opacity: 0.8;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.2);
+        }
+      }
+
+      .heart-text {
+        font-size: 1.2rem;
+        color: var(--text-primary);
+        line-height: 1.7;
+        text-align: center;
+        margin-bottom: 25px;
+      }
+
+      .others-section {
+        background: rgba(219, 234, 254, 0.3);
+        padding: 25px;
+        border-radius: 15px;
+        border-left: 4px solid var(--special-blue);
+        margin: 25px 0;
+        position: relative;
+      }
+
+      .others-section::before {
+        content: "👥";
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 1.5em;
+      }
+
+      .others-text {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        text-align: center;
+      }
+
+      .choice-declaration {
+        background: rgba(254, 243, 199, 0.4);
+        padding: 35px;
+        border-radius: 20px;
+        border: 3px solid rgba(254, 243, 199, 0.8);
+        margin: 30px 0;
+        position: relative;
+      }
+
+      .choice-declaration::before {
+        content: "👑";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 2em;
+        animation: crown 4s ease-in-out infinite;
+      }
+
+      @keyframes crown {
+        0%,
+        100% {
+          transform: rotate(-5deg) scale(1);
+        }
+        50% {
+          transform: rotate(5deg) scale(1.1);
+        }
+      }
+
+      .choice-text {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        text-align: center;
+        line-height: 1.6;
+        margin-left: 50px;
+      }
+
+      .emphasis {
+        color: var(--romantic-pink);
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .special-emphasis {
+        color: var(--choice-gold);
+        font-weight: 700;
+        font-style: italic;
+      }
+
+      @keyframes slideInHeart {
+        from {
+          opacity: 0;
+          transform: translateY(40px) scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .final-truth {
+        margin: 40px 0;
+        padding: 30px;
+        background: rgba(248, 187, 217, 0.2);
+        border-radius: 20px;
+        border: 2px solid rgba(248, 187, 217, 0.5);
+        max-width: 480px;
+        position: relative;
+      }
+
+      .final-truth::before {
+        content: "✨";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 1.5em;
+      }
+
+      .final-truth-text {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: var(--text-primary);
+        line-height: 1.7;
+        text-align: center;
+        margin-left: 35px;
+        font-style: italic;
+      }
+
+      .exclusive-declaration {
+        margin: 40px 0;
+        padding: 35px;
+        background: rgba(255, 0, 0, 0.1);
+        border-radius: 20px;
+        border: 3px solid rgba(255, 0, 0, 0.3);
+        max-width: 500px;
+        position: relative;
+        animation: intensePulse 2s ease-in-out infinite;
+      }
+
+      @keyframes intensePulse {
+        0%,
+        100% {
+          transform: scale(1);
+          box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+        }
+        50% {
+          transform: scale(1.02);
+          box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+        }
+      }
+
+      .exclusive-declaration::before {
+        content: "🔥";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 2em;
+        animation: fireIntense 1.5s ease-in-out infinite;
+      }
+
+      @keyframes fireIntense {
+        0%,
+        100% {
+          transform: scale(1) rotate(-5deg);
+        }
+        50% {
+          transform: scale(1.3) rotate(5deg);
+        }
+      }
+
+      .exclusive-title {
+        font-size: 1.6rem;
+        font-weight: 900;
+        color: #ff0000;
+        text-align: center;
+        margin-bottom: 20px;
+        margin-left: 40px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        animation: redGlow 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes redGlow {
+        0% {
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3),
+            0 0 10px rgba(255, 0, 0, 0.5);
+        }
+        100% {
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3),
+            0 0 20px rgba(255, 0, 0, 0.8), 0 0 30px rgba(255, 0, 0, 0.6);
+        }
+      }
+
+      .exclusive-text {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        line-height: 1.7;
+        text-align: center;
+        margin-left: 40px;
+      }
+
+      .name-emphasis {
+        color: #ff0000;
+        font-weight: 800;
+        font-size: 1.1em;
+        text-transform: uppercase;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      }
+
+      .navigation-section {
+        margin-top: 40px;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .nav-button {
+        background: linear-gradient(
+          45deg,
+          var(--romantic-pink),
+          var(--soft-purple)
+        );
+        border: none;
+        border-radius: 25px;
+        padding: 12px 24px;
+        font-size: 1rem;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .nav-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .nav-button:active {
+        transform: scale(0.95);
+      }
+
+      .back-button {
+        background: linear-gradient(
+          45deg,
+          var(--secondary-pastel),
+          var(--accent-pastel)
+        );
+        color: var(--text-primary);
+      }
+
+      /* Responsive para móviles pequeños */
+      @media (max-width: 320px) {
+        .title {
+          font-size: 1.8rem;
+        }
+
+        .heart-answer-card {
+          padding: 25px;
+        }
+
+        .heart-text {
+          font-size: 1.1rem;
+        }
+
+        .choice-text {
+          font-size: 1.2rem;
+          margin-left: 35px;
+        }
+
+        .navigation-section {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="page">
+        <header class="main-header">
+          <h1 class="title">¿Por qué a mí?</h1>
+          <p class="answer-intro">Esa pregunta es fácil de contestar</p>
+        </header>
+
+        <section class="choice-section">
+          <div class="heart-answer-card">
+            <p class="heart-text">
+              Porque realmente
+              <span class="emphasis">mi corazón te quiere a ti</span>. No quiso
+              a Scarleth Pintac, o a Erika Chávez, chicas que se morían por
+              estar conmigo en la Naval.
+            </p>
+
+            <div class="others-section">
+              <p class="others-text">
+                Eran bonitas sí, pero había algo que dije no, no quiero algo con
+                ellas, y les dije firmemente que no estaba interesado.
+              </p>
+            </div>
+
+            <div class="choice-declaration">
+              <p class="choice-text">
+                Es raro que yo me enamore, pero contigo es diferente, porque tú
+                fuiste
+                <span class="emphasis">mi elección</span>. Nadie me obligó,
+                <span class="special-emphasis">yo quise</span>.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="final-truth">
+          <p class="final-truth-text">
+            De todas las personas que he conocido, de todas las oportunidades
+            que he tenido, mi corazón te eligió a ti. Eso no fue casualidad, fue
+            una decisión del alma.
+          </p>
+        </section>
+
+        <section class="exclusive-declaration">
+          <div class="exclusive-title">QUE SE JODAN LAS DEMÁS</div>
+
+          <p class="exclusive-text">
+            Que se JODAN las demás chicas, yo solo te quiero a ti, solo quiero a
+            <span class="name-emphasis">Domenica Portilla</span>, a nadie más
+            que a ella, y eso nunca va a cambiar.
+          </p>
+        </section>
+
+        <section class="navigation-section">
+          <a href="page-ecos.html" class="nav-button back-button">← Regresar</a>
+          <a href="page7.html" class="nav-button">Continuar →</a>
+        </section>
+      </div>
+    </div>
+
+    <!-- Audio de fondo -->
+    <audio id="backgroundMusic" loop>
+      <source src="songs/Mac DeMarco My Kind Of Woman.mp3" type="audio/mpeg" />
+      Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <script>
+      // Efecto de entrada suave al cargar la página
+      window.addEventListener("load", function () {
+        document.body.style.opacity = "0";
+        document.body.style.transition = "opacity 0.5s ease-in-out";
+
+        // Reproducir música de fondo
+        const audio = document.getElementById("backgroundMusic");
+        audio.volume = 0.3; // Volumen al 30% para que no sea muy fuerte
+
+        // Intentar reproducir la música (algunos navegadores requieren interacción del usuario)
+        audio.play().catch(function (error) {
+          console.log(
+            "La reproducción automática fue bloqueada. El usuario debe interactuar primero."
+          );
+          // Agregar evento para reproducir cuando el usuario haga clic en cualquier parte
+          document.addEventListener(
+            "click",
+            function () {
+              audio.play();
+            },
+            { once: true }
+          );
+        });
+
+        setTimeout(() => {
+          document.body.style.opacity = "1";
+        }, 100);
+      });
+    </script>
+  </body>
+</html>

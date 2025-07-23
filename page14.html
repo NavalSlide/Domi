@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>La decisión es tuya - Para Dome ❤️</title>
+    <style>
+      :root {
+        --primary-pastel: #ffe4e6;
+        --secondary-pastel: #e0f2fe;
+        --accent-pastel: #fef3c7;
+        --text-primary: #374151;
+        --text-secondary: #6b7280;
+        --background: #ffffff;
+        --romantic-pink: #f8bbd9;
+        --soft-purple: #e8d5ff;
+        --love-red: #fee2e2;
+        --unconditional-gold: #fef3c7;
+        --eternal-blue: #dbeafe;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Georgia", serif;
+        background: var(--background);
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 20px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .page {
+        width: 100%;
+        text-align: center;
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .main-header {
+        margin-bottom: 50px;
+      }
+
+      .title {
+        font-size: 2.5rem;
+        font-weight: 500;
+        color: var(--text-primary);
+        margin-bottom: 40px;
+        background: linear-gradient(
+          45deg,
+          var(--romantic-pink),
+          var(--soft-purple),
+          var(--unconditional-gold)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.2;
+        padding: 0 10px;
+        animation: titleGlow 3s ease-in-out infinite alternate;
+      }
+
+      @keyframes titleGlow {
+        from {
+          filter: brightness(1);
+        }
+        to {
+          filter: brightness(1.2);
+        }
+      }
+
+      .photo-section {
+        margin: 40px 0;
+        position: relative;
+        display: flex;
+        justify-content: center;
+      }
+
+      .main-photo-container {
+        position: relative;
+        display: inline-block;
+        border-radius: 25px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        animation: photoGlow 4s ease-in-out infinite;
+        border: 4px solid transparent;
+        background: linear-gradient(45deg, #ffd700, #ff69b4, #87ceeb, #ffd700)
+          border-box;
+        background-clip: padding-box;
+      }
+
+      @keyframes photoGlow {
+        0%,
+        100% {
+          box-shadow: 0 0 30px rgba(255, 215, 0, 0.7),
+            0 0 60px rgba(255, 105, 180, 0.5), 0 0 90px rgba(135, 206, 235, 0.3),
+            inset 0 0 30px rgba(255, 255, 255, 0.1);
+          transform: scale(1);
+        }
+        50% {
+          box-shadow: 0 0 50px rgba(255, 215, 0, 0.9),
+            0 0 100px rgba(255, 105, 180, 0.7),
+            0 0 150px rgba(135, 206, 235, 0.5),
+            inset 0 0 50px rgba(255, 255, 255, 0.2);
+          transform: scale(1.02);
+        }
+      }
+
+      .main-photo {
+        width: 350px;
+        height: 450px;
+        object-fit: cover;
+        border-radius: 21px;
+        display: block;
+      }
+
+      .final-message {
+        margin: 30px 0;
+        width: 100%;
+        max-width: 600px;
+      }
+
+      .message-card {
+        background: linear-gradient(
+          135deg,
+          rgba(254, 226, 226, 0.3),
+          rgba(219, 234, 254, 0.3),
+          rgba(254, 243, 199, 0.3)
+        );
+        margin: 20px 0;
+        padding: 30px;
+        border-radius: 20px;
+        border: 2px solid transparent;
+        background-clip: padding-box;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        animation: messageFloat 6s ease-in-out infinite;
+        position: relative;
+        text-align: center;
+      }
+
+      @keyframes messageFloat {
+        0%,
+        100% {
+          transform: translateY(0px);
+          box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+        }
+        50% {
+          transform: translateY(-10px);
+          box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+        }
+      }
+
+      .message-card::before {
+        content: "💖";
+        position: absolute;
+        top: 25px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 3em;
+        animation: heartPulse 2s ease-in-out infinite;
+      }
+
+      @keyframes heartPulse {
+        0%,
+        100% {
+          transform: translateX(-50%) scale(1);
+        }
+        50% {
+          transform: translateX(-50%) scale(1.3);
+        }
+      }
+
+      .final-text {
+        font-size: 1.4rem;
+        color: var(--text-primary);
+        line-height: 1.8;
+        margin-top: 40px;
+        font-weight: 400;
+        text-align: center;
+      }
+
+      .unconditional-emphasis {
+        color: #dc2626;
+        font-weight: 800;
+        font-size: 1.1em;
+        text-transform: uppercase;
+        background: linear-gradient(45deg, #dc2626, #f59e0b);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: textGlow 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes textGlow {
+        from {
+          filter: brightness(1);
+        }
+        to {
+          filter: brightness(1.3);
+        }
+      }
+
+      .love-emphasis {
+        color: var(--romantic-pink);
+        font-weight: 700;
+        font-style: italic;
+      }
+
+      .eternal-emphasis {
+        color: #059669;
+        font-weight: 700;
+      }
+
+      .heart-decoration {
+        display: inline-block;
+        animation: heartBeat 1.5s ease-in-out infinite;
+        margin: 0 8px;
+        font-size: 1.2em;
+      }
+
+      @keyframes heartBeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.4);
+        }
+      }
+
+      .floating-hearts {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+        overflow: hidden;
+      }
+
+      .floating-heart {
+        position: absolute;
+        font-size: 2rem;
+        color: rgba(248, 187, 217, 0.3);
+        animation: floatUp 8s linear infinite;
+      }
+
+      @keyframes floatUp {
+        0% {
+          transform: translateY(100vh) rotate(0deg);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100px) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      .navigation-section {
+        margin-top: 60px;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .nav-button {
+        background: linear-gradient(
+          45deg,
+          var(--romantic-pink),
+          var(--soft-purple)
+        );
+        border: none;
+        border-radius: 25px;
+        padding: 15px 30px;
+        font-size: 1.1rem;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        text-decoration: none;
+        display: inline-block;
+        font-weight: 600;
+      }
+
+      .nav-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+      }
+
+      .nav-button:active {
+        transform: scale(0.95);
+      }
+
+      .back-button {
+        background: linear-gradient(
+          45deg,
+          var(--secondary-pastel),
+          var(--accent-pastel)
+        );
+        color: var(--text-primary);
+      }
+
+      /* Audio oculto */
+      .hidden-audio {
+        display: none;
+      }
+
+      /* Responsive para móviles pequeños */
+      @media (max-width: 320px) {
+        .title {
+          font-size: 2rem;
+        }
+
+        .main-photo {
+          width: 280px;
+          height: 360px;
+        }
+
+        .message-card {
+          padding: 35px;
+        }
+
+        .final-text {
+          font-size: 1.2rem;
+        }
+
+        .navigation-section {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .main-photo {
+          width: 300px;
+          height: 380px;
+        }
+
+        .message-card {
+          padding: 40px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Corazones flotantes de fondo -->
+    <div class="floating-hearts">
+      <div class="floating-heart" style="left: 10%; animation-delay: 0s">
+        💖
+      </div>
+      <div class="floating-heart" style="left: 20%; animation-delay: 2s">
+        💕
+      </div>
+      <div class="floating-heart" style="left: 30%; animation-delay: 4s">
+        💗
+      </div>
+      <div class="floating-heart" style="left: 40%; animation-delay: 6s">
+        💖
+      </div>
+      <div class="floating-heart" style="left: 50%; animation-delay: 1s">
+        💕
+      </div>
+      <div class="floating-heart" style="left: 60%; animation-delay: 3s">
+        💗
+      </div>
+      <div class="floating-heart" style="left: 70%; animation-delay: 5s">
+        💖
+      </div>
+      <div class="floating-heart" style="left: 80%; animation-delay: 7s">
+        💕
+      </div>
+      <div class="floating-heart" style="left: 90%; animation-delay: 2.5s">
+        💗
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="page">
+        <header class="main-header">
+          <h1 class="title">La decisión es tuya</h1>
+        </header>
+
+        <section class="photo-section">
+          <div class="main-photo-container">
+            <img
+              src="Dome4.jpeg"
+              alt="Dome - Mi amor eterno"
+              class="main-photo"
+            />
+          </div>
+        </section>
+
+        <section class="final-message">
+          <div class="message-card">
+            <p class="final-text">
+              <span class="eternal-emphasis">No importa lo que pase</span>,
+              <span class="heart-decoration">💖</span>
+              <span class="love-emphasis"
+                >yo siempre voy a querer ser tuyo</span
+              >
+            </p>
+
+            <p class="final-text">
+              Aunque incluso pienses cosas que no son de mí,
+              <span class="heart-decoration">💔</span>
+              o me trates frío, o te enojes...
+            </p>
+
+            <p class="final-text">
+              <span class="unconditional-emphasis"
+                >Mi amor es incondicional</span
+              >
+              <span class="heart-decoration">💕</span>
+            </p>
+          </div>
+        </section>
+
+        <section class="navigation-section">
+          <a href="page15.html" class="nav-button back-button">← Regresar</a>
+          <a href="index.html" class="nav-button">Volver al inicio ❤️</a>
+        </section>
+      </div>
+    </div>
+
+    <!-- Audio oculto -->
+    <audio id="backgroundAudio" autoplay loop class="hidden-audio">
+      <source src="songs/I Wanna Be Yours.mp3" type="audio/mpeg" />
+      Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <script>
+      // Efecto de entrada suave al cargar la página
+      window.addEventListener("load", function () {
+        document.body.style.opacity = "0";
+        document.body.style.transition = "opacity 1s ease-in-out";
+        setTimeout(() => {
+          document.body.style.opacity = "1";
+        }, 100);
+      });
+
+      // Crear más corazones flotantes dinámicamente
+      function createFloatingHeart() {
+        const heart = document.createElement("div");
+        heart.className = "floating-heart";
+        heart.innerHTML = ["💖", "💕", "💗"][Math.floor(Math.random() * 3)];
+        heart.style.left = Math.random() * 100 + "%";
+        heart.style.animationDelay = Math.random() * 8 + "s";
+        heart.style.fontSize = Math.random() * 1.5 + 1 + "rem";
+
+        document.querySelector(".floating-hearts").appendChild(heart);
+
+        // Remover el corazón después de la animación
+        setTimeout(() => {
+          heart.remove();
+        }, 8000);
+      }
+
+      // Crear corazones flotantes cada 3 segundos
+      setInterval(createFloatingHeart, 3000);
+
+      // Efecto de partículas de corazón al hacer clic en la foto
+      document
+        .querySelector(".main-photo")
+        .addEventListener("click", function (e) {
+          for (let i = 0; i < 5; i++) {
+            setTimeout(() => {
+              createFloatingHeart();
+            }, i * 200);
+          }
+        });
+    </script>
+  </body>
+</html>

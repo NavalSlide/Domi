@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>No Quiero Que Termine - Para Dome ❤️</title>
+    <style>
+      :root {
+        --primary-pastel: #ffe4e6;
+        --secondary-pastel: #e0f2fe;
+        --accent-pastel: #fef3c7;
+        --text-primary: #374151;
+        --text-secondary: #6b7280;
+        --background: #ffffff;
+        --romantic-pink: #f8bbd9;
+        --soft-purple: #e8d5ff;
+        --deep-love: #fecaca;
+        --eternal-blue: #dbeafe;
+        --hope-gold: #fef3c7;
+        --decision-red: #ec9797;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Georgia", serif;
+        background: var(--background);
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 20px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .page {
+        width: 100%;
+        text-align: center;
+        animation: fadeIn 0.8s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .main-header {
+        margin-bottom: 40px;
+      }
+
+      .title {
+        font-size: 2rem;
+        font-weight: 400;
+        color: var(--text-primary);
+        margin-bottom: 15px;
+        background: linear-gradient(
+          45deg,
+          var(--deep-love),
+          var(--eternal-blue)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.3;
+        padding: 0 10px;
+      }
+
+      .subtitle {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        font-style: italic;
+        margin-bottom: 30px;
+      }
+
+      .curious-fact {
+        background: rgba(254, 243, 199, 0.4);
+        padding: 25px;
+        border-radius: 20px;
+        border-left: 5px solid var(--hope-gold);
+        margin: 30px 0;
+        position: relative;
+        max-width: 500px;
+      }
+
+      .curious-fact::before {
+        content: "💡";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 1.5em;
+      }
+
+      .curious-text {
+        font-size: 1.1rem;
+        color: var(--text-primary);
+        text-align: center;
+        margin-left: 30px;
+        font-style: italic;
+      }
+
+      .love-declaration {
+        margin: 40px 0;
+        width: 100%;
+        max-width: 550px;
+      }
+
+      .love-card {
+        background: rgba(254, 202, 202, 0.3);
+        margin: 25px 0;
+        padding: 35px;
+        border-radius: 20px;
+        border-left: 5px solid var(--deep-love);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        animation: slideInLove 1s ease-out;
+        position: relative;
+        text-align: left;
+      }
+
+      .love-card::before {
+        content: "💖";
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 2em;
+        animation: heartPulse 3s ease-in-out infinite;
+      }
+
+      @keyframes heartPulse {
+        0%,
+        100% {
+          opacity: 0.8;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.2);
+        }
+      }
+
+      .love-text {
+        font-size: 1.1rem;
+        color: var(--text-primary);
+        line-height: 1.7;
+        text-align: center;
+        margin-bottom: 25px;
+      }
+
+      .struggle-section {
+        background: rgba(219, 234, 254, 0.4);
+        padding: 25px;
+        border-radius: 15px;
+        border-left: 4px solid var(--eternal-blue);
+        margin: 25px 0;
+        position: relative;
+      }
+
+      .struggle-section::before {
+        content: "🌊";
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 1.5em;
+      }
+
+      .struggle-text {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        text-align: center;
+        font-style: italic;
+      }
+
+      .decision-section {
+        background: rgba(254, 226, 226, 0.4);
+        padding: 35px;
+        border-radius: 20px;
+        border: 3px solid rgba(254, 226, 226, 0.7);
+        margin: 35px 0;
+        position: relative;
+      }
+
+      .decision-section::before {
+        content: "⚡";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 2em;
+        animation: lightning 4s ease-in-out infinite;
+      }
+
+      @keyframes lightning {
+        0%,
+        100% {
+          opacity: 0.7;
+          transform: rotate(-10deg);
+        }
+        50% {
+          opacity: 1;
+          transform: rotate(10deg) scale(1.1);
+        }
+      }
+
+      .decision-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        text-align: center;
+        margin-bottom: 20px;
+        margin-left: 40px;
+      }
+
+      .decision-text {
+        font-size: 1.2rem;
+        color: var(--text-primary);
+        line-height: 1.7;
+        text-align: center;
+        margin-left: 40px;
+        font-weight: 500;
+      }
+
+      .final-declaration {
+        background: rgba(248, 187, 217, 0.3);
+        padding: 30px;
+        border-radius: 20px;
+        border: 2px solid rgba(248, 187, 217, 0.6);
+        margin: 30px 0;
+        position: relative;
+        max-width: 520px;
+      }
+
+      .final-declaration::before {
+        content: "🛤️";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 1.5em;
+      }
+
+      .final-text {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        line-height: 1.7;
+        text-align: center;
+        margin-left: 35px;
+        font-style: italic;
+      }
+
+      .emphasis {
+        color: var(--romantic-pink);
+        font-weight: 700;
+      }
+
+      .strong-emphasis {
+        color: var(--deep-love);
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .decision-emphasis {
+        color: var(--decision-red);
+        font-weight: 700;
+        font-size: 1.1em;
+      }
+
+      @keyframes slideInLove {
+        from {
+          opacity: 0;
+          transform: translateY(40px) scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .navigation-section {
+        margin-top: 40px;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .nav-button {
+        background: linear-gradient(
+          45deg,
+          var(--romantic-pink),
+          var(--soft-purple)
+        );
+        border: none;
+        border-radius: 25px;
+        padding: 12px 24px;
+        font-size: 1rem;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .nav-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .nav-button:active {
+        transform: scale(0.95);
+      }
+
+      .back-button {
+        background: linear-gradient(
+          45deg,
+          var(--secondary-pastel),
+          var(--accent-pastel)
+        );
+        color: var(--text-primary);
+      }
+
+      /* Responsive para móviles pequeños */
+      @media (max-width: 320px) {
+        .title {
+          font-size: 1.7rem;
+        }
+
+        .love-card {
+          padding: 25px;
+        }
+
+        .decision-section {
+          padding: 25px;
+        }
+
+        .decision-title {
+          font-size: 1.2rem;
+          margin-left: 30px;
+        }
+
+        .decision-text {
+          font-size: 1.1rem;
+          margin-left: 30px;
+        }
+
+        .navigation-section {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="page">
+        <header class="main-header">
+          <h1 class="title">Mi Historia Contigo</h1>
+          <p class="subtitle">3/? - NO QUIERO QUE TERMINE</p>
+        </header>
+
+        <section class="curious-fact">
+          <p class="curious-text">
+            <strong>Dato curioso:</strong> Si te das cuenta dice 3/? porque
+            <span class="emphasis">no quiero que termine así</span>, quiero que
+            nuestra historia siga.
+          </p>
+        </section>
+
+        <section class="love-declaration">
+          <div class="love-card">
+            <p class="love-text">
+              Quiero que sepas que
+              <span class="strong-emphasis">no puedo</span>, no puedo verte como
+              una amiga, porque <span class="emphasis">aún te amo</span>. No
+              quiero buscar a nadie más, quiero intentarlo contigo hasta que no
+              salga bien, no por costumbre ni por miedo a estar solo, sino
+              porque contigo siento algo que no sé explicar pero tampoco quiero
+              soltar.
+            </p>
+
+            <div class="struggle-section">
+              <p class="struggle-text">
+                Sé que no somos perfectos, que a veces el orgullo habla más
+                fuerte y las heridas del pasado nos confunden, pero también sé
+                que hay algo en ti que me calma, que me abraza incluso en la
+                distancia, que me hace querer quedarme.
+              </p>
+            </div>
+
+            <p class="love-text">
+              No quiero empezar de nuevo con otra historia, aprender otros
+              gestos, otros silencios.
+              <span class="emphasis">Quiero aprender los tuyos</span>, entender
+              tus sombras, reírme con tus rarezas, y que tú también aprendas a
+              amarme en mis días difíciles.
+            </p>
+
+            <p class="love-text">
+              Tal vez nos equivoquemos mil veces, pero si es contigo vale la
+              pena, porque prefiero
+              <span class="emphasis">luchar por lo que siento contigo</span> que
+              rendirme por lo que aún no entiendo.
+            </p>
+
+            <div class="struggle-section">
+              <p class="struggle-text">
+                Solo te pido una cosa: no soltemos, aunque cueste, aunque duela,
+                sigamos.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="decision-section">
+          <div class="decision-title">Mi Decisión Final</div>
+
+          <p class="decision-text">
+            Hay 1000 razones por las que no deberíamos estar juntos, pero ¿qué
+            importa si las hay? Hay que tomar una decisión, y
+            <span class="decision-emphasis"
+              >tú eres mi decisión, mi elección</span
+            >.
+          </p>
+        </section>
+
+        <section class="final-declaration">
+          <p class="final-text">
+            No quiero caminos separados porque
+            <span class="emphasis">tú eres mi camino</span>
+            y siempre lo serás.
+          </p>
+        </section>
+
+        <section class="navigation-section">
+          <a href="page8.html" class="nav-button back-button">← Regresar</a>
+          <a href="page10.html" class="nav-button">Continuar →</a>
+        </section>
+      </div>
+    </div>
+
+    <!-- Audio de fondo -->
+    <audio id="backgroundMusic" loop>
+      <source
+        src="songs/html headtitle410 Gonetitlehead body centerh1410 Goneh1center hrcenternginx1.24.0 (Ubuntu)center body html.mp3"
+        type="audio/mpeg"
+      />
+      Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <script>
+      // Efecto de entrada suave al cargar la página
+      window.addEventListener("load", function () {
+        document.body.style.opacity = "0";
+        document.body.style.transition = "opacity 0.5s ease-in-out";
+
+        // Reproducir música de fondo
+        const audio = document.getElementById("backgroundMusic");
+        audio.volume = 0.3; // Volumen al 30% para que no sea muy fuerte
+
+        // Intentar reproducir la música (algunos navegadores requieren interacción del usuario)
+        audio.play().catch(function (error) {
+          console.log(
+            "La reproducción automática fue bloqueada. El usuario debe interactuar primero."
+          );
+          // Agregar evento para reproducir cuando el usuario haga clic en cualquier parte
+          document.addEventListener(
+            "click",
+            function () {
+              audio.play();
+            },
+            { once: true }
+          );
+        });
+
+        setTimeout(() => {
+          document.body.style.opacity = "1";
+        }, 100);
+      });
+    </script>
+  </body>
+</html>

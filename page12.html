@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>¿Realmente me amaste? - Para Dome ❤️</title>
+    <style>
+      :root {
+        --primary-pastel: #ffe4e6;
+        --secondary-pastel: #e0f2fe;
+        --accent-pastel: #fef3c7;
+        --text-primary: #374151;
+        --text-secondary: #6b7280;
+        --background: #ffffff;
+        --romantic-pink: #f8bbd9;
+        --soft-purple: #e8d5ff;
+        --love-red: #fee2e2;
+        --sadness-gray: #f3f4f6;
+        --happiness-yellow: #fef3c7;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Georgia", serif;
+        background: var(--background);
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 20px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .page {
+        width: 100%;
+        text-align: center;
+        animation: fadeIn 0.8s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .main-header {
+        margin-bottom: 40px;
+      }
+
+      .title {
+        font-size: 2.1rem;
+        font-weight: 400;
+        color: var(--text-primary);
+        margin-bottom: 30px;
+        background: linear-gradient(
+          45deg,
+          var(--love-red),
+          var(--romantic-pink)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.3;
+        padding: 0 10px;
+      }
+
+      .love-declaration {
+        margin: 40px 0;
+        width: 100%;
+        max-width: 500px;
+      }
+
+      .declaration-card {
+        background: rgba(254, 226, 226, 0.3);
+        margin: 25px 0;
+        padding: 35px;
+        border-radius: 20px;
+        border-left: 5px solid var(--love-red);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        animation: slideInLove 1s ease-out;
+        position: relative;
+        text-align: left;
+      }
+
+      .declaration-card::before {
+        content: "💖";
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 2em;
+        animation: heartPulse 2s ease-in-out infinite;
+      }
+
+      @keyframes heartPulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+      }
+
+      .declaration-text {
+        font-size: 1.2rem;
+        color: var(--text-primary);
+        line-height: 1.7;
+        text-align: center;
+        margin-bottom: 25px;
+      }
+
+      .photo-section {
+        margin: 30px 0;
+        position: relative;
+      }
+
+      .photo-container {
+        position: relative;
+        display: inline-block;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        animation: frameGlow 3s ease-in-out infinite;
+        border: 3px solid transparent;
+        background: linear-gradient(45deg, #ffd700, #ffa500, #ffd700, #ffff00)
+          border-box;
+        background-clip: padding-box;
+      }
+
+      @keyframes frameGlow {
+        0%,
+        100% {
+          box-shadow: 0 0 20px rgba(255, 215, 0, 0.6),
+            0 0 40px rgba(255, 215, 0, 0.4), 0 0 60px rgba(255, 215, 0, 0.2),
+            inset 0 0 20px rgba(255, 215, 0, 0.1);
+          border: 3px solid rgba(255, 215, 0, 0.8);
+        }
+        50% {
+          box-shadow: 0 0 30px rgba(255, 215, 0, 0.9),
+            0 0 60px rgba(255, 215, 0, 0.7), 0 0 90px rgba(255, 215, 0, 0.4),
+            inset 0 0 30px rgba(255, 215, 0, 0.2);
+          border: 3px solid rgba(255, 215, 0, 1);
+          transform: scale(1.02);
+        }
+      }
+
+      .main-photo {
+        width: 280px;
+        height: 350px;
+        object-fit: cover;
+        border-radius: 17px;
+      }
+
+      .overlay-text {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .romantic-phrase {
+        position: absolute;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        padding: 6px 12px;
+        border-radius: 20px;
+        opacity: 0;
+        transform: scale(0);
+        animation: heartFloat 6s ease-in-out infinite;
+        white-space: nowrap;
+      }
+
+      .romantic-phrase::before {
+        content: "💖";
+        margin-right: 5px;
+        font-size: 1.2em;
+      }
+
+      .romantic-phrase::after {
+        content: "💖";
+        margin-left: 5px;
+        font-size: 1.2em;
+      }
+
+      .romantic-phrase:nth-child(1) {
+        background: rgba(248, 187, 217, 0.9);
+        top: 20%;
+        left: 10%;
+        animation-delay: 0s;
+      }
+
+      .romantic-phrase:nth-child(2) {
+        background: rgba(232, 213, 255, 0.9);
+        top: 40%;
+        right: 15%;
+        animation-delay: 2s;
+      }
+
+      .romantic-phrase:nth-child(3) {
+        background: rgba(254, 243, 199, 0.9);
+        top: 60%;
+        left: 20%;
+        animation-delay: 4s;
+      }
+
+      .romantic-phrase:nth-child(4) {
+        background: rgba(255, 228, 230, 0.9);
+        top: 30%;
+        right: 5%;
+        animation-delay: 6s;
+      }
+
+      .romantic-phrase:nth-child(5) {
+        background: rgba(224, 242, 254, 0.9);
+        top: 70%;
+        right: 25%;
+        animation-delay: 8s;
+      }
+
+      .romantic-phrase:nth-child(6) {
+        background: rgba(248, 187, 217, 0.9);
+        top: 50%;
+        left: 5%;
+        animation-delay: 10s;
+      }
+
+      @keyframes heartFloat {
+        0% {
+          opacity: 0;
+          transform: scale(0) translateY(0px);
+        }
+        15% {
+          opacity: 1;
+          transform: scale(1) translateY(-10px);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.1) translateY(-20px);
+        }
+        85% {
+          opacity: 1;
+          transform: scale(1) translateY(-30px);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(0.8) translateY(-50px);
+        }
+      }
+
+      .comparison-section {
+        margin: 50px 0;
+        width: 100%;
+        max-width: 600px;
+      }
+
+      .comparison-title {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 40px;
+        text-align: center;
+      }
+
+      .comparison-container {
+        display: flex;
+        gap: 30px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .comparison-item {
+        flex: 1;
+        min-width: 250px;
+        max-width: 280px;
+      }
+
+      .sad-section {
+        background: rgba(243, 244, 246, 0.6);
+        padding: 25px;
+        border-radius: 20px;
+        border: 3px solid rgba(156, 163, 175, 0.3);
+        position: relative;
+      }
+
+      .sad-section::before {
+        content: "😢";
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 1.5em;
+      }
+
+      .happy-section {
+        background: rgba(254, 243, 199, 0.6);
+        padding: 25px;
+        border-radius: 20px;
+        border: 3px solid rgba(254, 243, 199, 0.8);
+        position: relative;
+      }
+
+      .happy-section::before {
+        content: "😊";
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 1.5em;
+      }
+
+      .section-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .sad-title {
+        color: #6b7280;
+      }
+
+      .happy-title {
+        color: #d97706;
+      }
+
+      .comparison-photo {
+        width: 200px;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 15px;
+        margin-bottom: 15px;
+        position: relative;
+      }
+
+      .sad-phrases,
+      .happy-phrases {
+        position: relative;
+        height: 100px;
+        overflow: hidden;
+      }
+
+      .sad-phrase,
+      .happy-phrase {
+        position: absolute;
+        font-size: 0.9rem;
+        font-weight: 500;
+        padding: 4px 8px;
+        border-radius: 15px;
+        opacity: 0;
+        transform: scale(0);
+        animation: phraseFloat 5s ease-in-out infinite;
+        white-space: nowrap;
+      }
+
+      .sad-phrase {
+        color: #6b7280;
+        background: rgba(156, 163, 175, 0.3);
+      }
+
+      .happy-phrase {
+        color: #d97706;
+        background: rgba(254, 243, 199, 0.8);
+      }
+
+      .sad-phrase:nth-child(1) {
+        top: 10%;
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .sad-phrase:nth-child(2) {
+        top: 40%;
+        right: 10%;
+        animation-delay: 1.5s;
+      }
+      .sad-phrase:nth-child(3) {
+        top: 70%;
+        left: 20%;
+        animation-delay: 3s;
+      }
+
+      .happy-phrase:nth-child(1) {
+        top: 15%;
+        left: 15%;
+        animation-delay: 0s;
+      }
+      .happy-phrase:nth-child(2) {
+        top: 45%;
+        right: 15%;
+        animation-delay: 1.5s;
+      }
+      .happy-phrase:nth-child(3) {
+        top: 75%;
+        left: 10%;
+        animation-delay: 3s;
+      }
+
+      @keyframes phraseFloat {
+        0% {
+          opacity: 0;
+          transform: scale(0) translateY(0px);
+        }
+        20% {
+          opacity: 1;
+          transform: scale(1) translateY(-5px);
+        }
+        80% {
+          opacity: 1;
+          transform: scale(1) translateY(-10px);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(0.8) translateY(-15px);
+        }
+      }
+
+      .emphasis {
+        color: var(--romantic-pink);
+        font-weight: 700;
+      }
+
+      .strong-emphasis {
+        color: #dc2626;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      @keyframes slideInLove {
+        from {
+          opacity: 0;
+          transform: translateY(40px) scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .navigation-section {
+        margin-top: 40px;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .nav-button {
+        background: linear-gradient(
+          45deg,
+          var(--romantic-pink),
+          var(--soft-purple)
+        );
+        border: none;
+        border-radius: 25px;
+        padding: 12px 24px;
+        font-size: 1rem;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .nav-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .nav-button:active {
+        transform: scale(0.95);
+      }
+
+      .back-button {
+        background: linear-gradient(
+          45deg,
+          var(--secondary-pastel),
+          var(--accent-pastel)
+        );
+        color: var(--text-primary);
+      }
+
+      /* Estilos para letras sincronizadas */
+      .lyrics-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.5s ease-in-out;
+        pointer-events: none;
+      }
+
+      .lyrics-overlay.show {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .lyrics-text {
+        text-align: center;
+        color: white;
+        font-size: 1.8rem;
+        font-weight: 400;
+        line-height: 1.4;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        max-width: 90%;
+        animation: lyricsGlow 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes lyricsGlow {
+        from {
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        to {
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8),
+            0 0 20px rgba(255, 255, 255, 0.3);
+        }
+      }
+
+      /* Audio oculto */
+      .hidden-audio {
+        display: none;
+      }
+
+      /* Responsive para móviles pequeños */
+      @media (max-width: 320px) {
+        .lyrics-text {
+          font-size: 1.4rem;
+        }
+
+        .audio-controls audio {
+          width: 200px;
+        }
+        .title {
+          font-size: 1.8rem;
+        }
+
+        .declaration-card {
+          padding: 25px;
+        }
+
+        .main-photo {
+          width: 240px;
+          height: 300px;
+        }
+
+        .comparison-container {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .comparison-photo {
+          width: 180px;
+          height: 220px;
+        }
+
+        .navigation-section {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="page">
+        <header class="main-header">
+          <h1 class="title">¿Realmente me amaste?</h1>
+        </header>
+
+        <section class="love-declaration">
+          <div class="declaration-card">
+            <p class="declaration-text">
+              <span class="strong-emphasis">Por Dios Domenica</span>, créeme que
+              lo hice. Tan solo mírate, amo esa sonrisa, esa carita,
+              <span class="emphasis">esos HERMOSOS OJOS QUE TIENES</span>
+            </p>
+
+            <div class="photo-section">
+              <div class="photo-container">
+                <img
+                  src="Dome3.jpeg"
+                  alt="Dome - Hermosos ojos"
+                  class="main-photo"
+                />
+              </div>
+            </div>
+
+            <p class="declaration-text">
+              <span class="emphasis"
+                >Créeme que lo hice con todo mi corazón</span
+              >: amo todo de ti,
+              <span class="strong-emphasis">eres perfecta</span>.
+            </p>
+          </div>
+        </section>
+
+        <section class="comparison-section">
+          <h2 class="comparison-title">La diferencia es clara</h2>
+
+          <div class="comparison-container">
+            <div class="comparison-item">
+              <div class="sad-section">
+                <h3 class="section-title sad-title">Yo sin ti</h3>
+                <img
+                  src="triste.png"
+                  alt="Triste sin ti"
+                  class="comparison-photo"
+                />
+                <div class="sad-phrases">
+                  <span class="sad-phrase">Te extraño</span>
+                  <span class="sad-phrase">Me siento vacío</span>
+                  <span class="sad-phrase">Todo es gris</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="comparison-item">
+              <div class="happy-section">
+                <h3 class="section-title happy-title">Yo contigo</h3>
+                <img
+                  src="Yo.jpeg"
+                  alt="Feliz contigo"
+                  class="comparison-photo"
+                />
+                <div class="happy-phrases">
+                  <span class="happy-phrase">Ella me ama</span>
+                  <span class="happy-phrase">Qué linda es ella</span>
+                  <span class="happy-phrase">Soy feliz</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="navigation-section">
+          <a href="page11.html" class="nav-button back-button">← Regresar</a>
+          <a href="page13.html" class="nav-button">Continuar →</a>
+        </section>
+      </div>
+    </div>
+
+    <!-- Overlay para letras sincronizadas -->
+    <div class="lyrics-overlay" id="lyricsOverlay">
+      <div class="lyrics-text" id="lyricsText">
+        Me importas tú, y tú, y tú<br />
+        Y solamente tú, y tú, y tú<br />
+        Me importas tú, y tú, y tú<br />
+        Y nadie más que tú
+      </div>
+    </div>
+
+    <!-- Audio oculto -->
+    <audio id="cucoAudio" autoplay class="hidden-audio">
+      <source src="songs/Cuco - Piel Canela (Audio).mp3" type="audio/mpeg" />
+      Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <script>
+      // Efecto de entrada suave al cargar la página
+      window.addEventListener("load", function () {
+        document.body.style.opacity = "0";
+        document.body.style.transition = "opacity 0.5s ease-in-out";
+        setTimeout(() => {
+          document.body.style.opacity = "1";
+        }, 100);
+      });
+
+      // Funcionalidad de letras sincronizadas con Cuco - Piel Canela
+      const audio = document.getElementById("cucoAudio");
+      audio.volume = 0.3;
+      const lyricsOverlay = document.getElementById("lyricsOverlay");
+      const lyricsText = document.getElementById("lyricsText");
+
+      // Letras divididas en palabras
+      const lyrics = [
+        "Me",
+        "importas",
+        "tú,",
+        "y",
+        "tú,",
+        "y",
+        "tú",
+        "Y",
+        "solamente",
+        "tú,",
+        "y",
+        "tú,",
+        "y",
+        "tú",
+        "Me",
+        "importas",
+        "tú,",
+        "y",
+        "tú,",
+        "y",
+        "tú",
+        "Y",
+        "nadie",
+        "más",
+        "que",
+        "tú",
+      ];
+
+      let currentWordIndex = 0;
+      let wordInterval;
+      let isShowingLyrics = false;
+
+      function showLyricsWordByWord() {
+        if (isShowingLyrics) return;
+
+        isShowingLyrics = true;
+        lyricsOverlay.classList.add("show");
+        currentWordIndex = 0;
+        lyricsText.innerHTML = "";
+
+        wordInterval = setInterval(() => {
+          if (currentWordIndex < lyrics.length) {
+            // Añadir la siguiente palabra
+            if (currentWordIndex > 0) {
+              lyricsText.innerHTML += " ";
+            }
+            lyricsText.innerHTML += `<span style="animation: wordAppear 0.5s ease-in-out;">${lyrics[currentWordIndex]}</span>`;
+            currentWordIndex++;
+          } else {
+            clearInterval(wordInterval);
+          }
+        }, 300); // Una palabra cada 300ms
+      }
+
+      function hideLyrics() {
+        isShowingLyrics = false;
+        lyricsOverlay.classList.remove("show");
+        if (wordInterval) {
+          clearInterval(wordInterval);
+        }
+        currentWordIndex = 0;
+        lyricsText.innerHTML = "";
+      }
+
+      // Sincronización exacta de letras
+      audio.addEventListener("timeupdate", function () {
+        const currentTime = audio.currentTime;
+
+        // Primera aparición: 0:49 hasta 1:03 (49 segundos hasta 63 segundos)
+        if (currentTime >= 49 && currentTime <= 63) {
+          if (!isShowingLyrics) {
+            showLyricsWordByWord();
+          }
+        }
+        // Segunda aparición: 1:05 hasta 1:20 (65 segundos hasta 80 segundos)
+        else if (currentTime >= 65 && currentTime <= 80) {
+          if (!isShowingLyrics) {
+            showLyricsWordByWord();
+          }
+        }
+        // Ocultar letras fuera de estos rangos
+        else {
+          if (isShowingLyrics) {
+            hideLyrics();
+          }
+        }
+      });
+
+      // Asegurar que las letras se oculten cuando la canción termine o se pause
+      audio.addEventListener("ended", hideLyrics);
+      audio.addEventListener("pause", hideLyrics);
+
+      // Mostrar letras cuando se reanude la reproducción (si está en el tiempo correcto)
+      audio.addEventListener("play", function () {
+        const currentTime = audio.currentTime;
+        if (
+          (currentTime >= 49 && currentTime <= 63) ||
+          (currentTime >= 65 && currentTime <= 80)
+        ) {
+          if (!isShowingLyrics) {
+            showLyricsWordByWord();
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

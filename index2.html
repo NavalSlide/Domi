@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Para Dome ❤️</title>
+    <style>
+      :root {
+        --primary-pastel: #ffe4e6;
+        --secondary-pastel: #e0f2fe;
+        --accent-pastel: #fef3c7;
+        --text-primary: #374151;
+        --text-secondary: #6b7280;
+        --background: #ffffff;
+        --romantic-pink: #f8bbd9;
+        --soft-purple: #e8d5ff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Georgia", serif;
+        background: var(--background);
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 20px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .page {
+        display: none;
+        width: 100%;
+        text-align: center;
+        animation: fadeIn 0.8s ease-in-out;
+      }
+
+      .page.active {
+        display: block;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .main-header {
+        margin-bottom: 40px;
+      }
+
+      .title {
+        font-size: 2rem;
+        font-weight: 300;
+        color: var(--text-primary);
+        margin-bottom: 20px;
+        background: linear-gradient(
+          45deg,
+          var(--romantic-pink),
+          var(--soft-purple)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .photo-section {
+        margin: 40px 0;
+        position: relative;
+      }
+
+      .photo-container {
+        position: relative;
+        display: inline-block;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .main-photo {
+        width: 280px;
+        height: 350px;
+        object-fit: cover;
+        border-radius: 20px;
+      }
+
+      .overlay-text {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .romantic-phrase {
+        position: absolute;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        padding: 6px 12px;
+        border-radius: 20px;
+        opacity: 0;
+        transform: scale(0);
+        animation: heartFloat 6s ease-in-out infinite;
+        white-space: nowrap;
+      }
+
+      .romantic-phrase::before {
+        content: "💖";
+        margin-right: 5px;
+        font-size: 1.2em;
+      }
+
+      .romantic-phrase::after {
+        content: "💖";
+        margin-left: 5px;
+        font-size: 1.2em;
+      }
+
+      .romantic-phrase:nth-child(1) {
+        background: rgba(248, 187, 217, 0.9);
+        top: 20%;
+        left: 10%;
+        animation-delay: 0s;
+      }
+
+      .romantic-phrase:nth-child(2) {
+        background: rgba(232, 213, 255, 0.9);
+        top: 40%;
+        right: 15%;
+        animation-delay: 2s;
+      }
+
+      .romantic-phrase:nth-child(3) {
+        background: rgba(254, 243, 199, 0.9);
+        top: 60%;
+        left: 20%;
+        animation-delay: 4s;
+      }
+
+      .romantic-phrase:nth-child(4) {
+        background: rgba(255, 228, 230, 0.9);
+        top: 30%;
+        right: 5%;
+        animation-delay: 6s;
+      }
+
+      .romantic-phrase:nth-child(5) {
+        background: rgba(224, 242, 254, 0.9);
+        top: 70%;
+        right: 25%;
+        animation-delay: 8s;
+      }
+
+      .romantic-phrase:nth-child(6) {
+        background: rgba(248, 187, 217, 0.9);
+        top: 50%;
+        left: 5%;
+        animation-delay: 10s;
+      }
+
+      .romantic-phrase:nth-child(7) {
+        background: rgba(232, 213, 255, 0.9);
+        top: 80%;
+        left: 30%;
+        animation-delay: 12s;
+      }
+
+      .romantic-phrase:nth-child(8) {
+        background: rgba(254, 243, 199, 0.9);
+        top: 15%;
+        right: 30%;
+        animation-delay: 14s;
+      }
+
+      .romantic-phrase:nth-child(9) {
+        background: rgba(255, 228, 230, 0.9);
+        top: 65%;
+        left: 35%;
+        animation-delay: 16s;
+      }
+
+      .romantic-phrase:nth-child(10) {
+        background: rgba(224, 242, 254, 0.9);
+        top: 45%;
+        left: 25%;
+        animation-delay: 18s;
+      }
+
+      .romantic-phrase:nth-child(11) {
+        background: rgba(248, 187, 217, 0.9);
+        top: 75%;
+        right: 10%;
+        animation-delay: 20s;
+      }
+
+      .romantic-phrase:nth-child(12) {
+        background: rgba(232, 213, 255, 0.9);
+        top: 35%;
+        left: 15%;
+        animation-delay: 22s;
+      }
+
+      @keyframes heartFloat {
+        0% {
+          opacity: 0;
+          transform: scale(0) translateY(0px);
+        }
+        15% {
+          opacity: 1;
+          transform: scale(1) translateY(-10px);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.1) translateY(-20px);
+        }
+        85% {
+          opacity: 1;
+          transform: scale(1) translateY(-30px);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(0.8) translateY(-50px);
+        }
+      }
+
+      .cta-section {
+        margin-top: 40px;
+      }
+
+      .invitation-text {
+        font-size: 1.2rem;
+        font-weight: 300;
+        color: var(--text-secondary);
+        margin-bottom: 30px;
+        font-style: italic;
+      }
+
+      .next-arrow {
+        background: linear-gradient(
+          45deg,
+          var(--romantic-pink),
+          var(--soft-purple)
+        );
+        border: none;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .next-arrow:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .next-arrow:active {
+        transform: scale(0.95);
+      }
+
+      /* Responsive para móviles pequeños */
+      @media (max-width: 320px) {
+        .title {
+          font-size: 1.6rem;
+        }
+
+        .main-photo {
+          width: 240px;
+          height: 300px;
+        }
+
+        .romantic-phrase {
+          font-size: 1.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Página 1: Bienvenida -->
+      <div class="page active" id="page1">
+        <header class="main-header">
+          <h1 class="title">Página exclusivamente para Dome</h1>
+        </header>
+
+        <section class="photo-section">
+          <div class="photo-container">
+            <img src="Dome1.jpeg" alt="Dome" class="main-photo" />
+            <div class="overlay-text">
+              <span class="romantic-phrase">Perfecta</span>
+              <span class="romantic-phrase">Divina</span>
+              <span class="romantic-phrase">Hermosa</span>
+              <span class="romantic-phrase">Preciosa</span>
+              <span class="romantic-phrase">Única</span>
+              <span class="romantic-phrase">Especial</span>
+              <span class="romantic-phrase">Sus ojos</span>
+              <span class="romantic-phrase">Su carisma</span>
+              <span class="romantic-phrase">Su humor</span>
+              <span class="romantic-phrase">Su carita</span>
+              <span class="romantic-phrase">Su sonrisa</span>
+              <span class="romantic-phrase">Su mirada</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="cta-section">
+          <p class="invitation-text">
+            Se que estas enojada pero dame un momento de tu tiempo pls
+          </p>
+          <button class="next-arrow" onclick="nextPage()">→</button>
+        </section>
+      </div>
+    </div>
+
+    <script>
+      let currentPage = 1;
+      const totalPages = 1;
+
+      function showPage(pageNum) {
+        document.querySelectorAll(".page").forEach((page) => {
+          page.classList.remove("active");
+        });
+        document.getElementById(`page${pageNum}`).classList.add("active");
+        currentPage = pageNum;
+      }
+
+      function nextPage() {
+        if (currentPage < totalPages) {
+          showPage(currentPage + 1);
+        } else {
+          // Navegar a la página 2
+          window.location.href = "page2.html";
+        }
+      }
+    </script>
+  </body>
+</html>

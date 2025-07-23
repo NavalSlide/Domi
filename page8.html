@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>El Inicio de Todo - Para Dome ❤️</title>
+    <style>
+      :root {
+        --primary-pastel: #ffe4e6;
+        --secondary-pastel: #e0f2fe;
+        --accent-pastel: #fef3c7;
+        --text-primary: #374151;
+        --text-secondary: #6b7280;
+        --background: #ffffff;
+        --romantic-pink: #f8bbd9;
+        --soft-purple: #e8d5ff;
+        --memory-gold: #f8c600;
+        --heart-red: #fee2e2;
+        --chat-blue: #dbeafe;
+        --love-deep-red: #fecaca;
+        --sweet-pink: #fce7f3;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Georgia", serif;
+        background: var(--background);
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 20px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .page {
+        width: 100%;
+        text-align: center;
+        animation: fadeIn 0.8s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .main-header {
+        margin-bottom: 40px;
+      }
+
+      .title {
+        font-size: 2rem;
+        font-weight: 400;
+        color: var(--text-primary);
+        margin-bottom: 15px;
+        background: linear-gradient(
+          45deg,
+          var(--memory-gold),
+          var(--romantic-pink)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.3;
+        padding: 0 10px;
+      }
+
+      .subtitle {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        font-style: italic;
+        margin-bottom: 30px;
+      }
+
+      .story-section {
+        margin: 30px 0;
+        width: 100%;
+        max-width: 500px;
+      }
+
+      .memory-card {
+        background: rgba(254, 243, 199, 0.3);
+        margin: 25px 0;
+        padding: 30px;
+        border-radius: 20px;
+        border-left: 5px solid var(--memory-gold);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        animation: slideInMemory 0.8s ease-out;
+        position: relative;
+        text-align: left;
+      }
+
+      .memory-card::before {
+        content: "💬";
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 1.6em;
+      }
+
+      .date-time {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        text-align: center;
+        margin-bottom: 20px;
+        background: rgba(254, 243, 199, 0.6);
+        padding: 12px;
+        border-radius: 12px;
+      }
+
+      .memory-text {
+        font-size: 1.1rem;
+        color: var(--text-primary);
+        line-height: 1.6;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .chat-reaction {
+        background: rgba(219, 234, 254, 0.4);
+        padding: 20px;
+        border-radius: 15px;
+        border-left: 4px solid var(--chat-blue);
+        margin: 20px 0;
+        position: relative;
+        font-style: italic;
+      }
+
+      .chat-reaction::before {
+        content: "😻";
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 1.3em;
+      }
+
+      .reaction-text {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        text-align: center;
+        margin-right: 30px;
+      }
+
+      .getting-to-know-section {
+        background: rgba(252, 231, 243, 0.4);
+        padding: 25px;
+        border-radius: 20px;
+        border: 2px solid rgba(252, 231, 243, 0.6);
+        margin: 30px 0;
+        position: relative;
+      }
+
+      .getting-to-know-section::before {
+        content: "🌸";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 1.5em;
+      }
+
+      .section-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        text-align: center;
+        margin-bottom: 20px;
+        margin-left: 30px;
+      }
+
+      .traits-list {
+        list-style: none;
+        padding: 0;
+        margin: 15px 0;
+      }
+
+      .trait-item {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        margin: 8px 0;
+        padding-left: 25px;
+        position: relative;
+        line-height: 1.4;
+      }
+
+      .trait-item::before {
+        content: "💕";
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 1em;
+      }
+
+      .love-declaration-section {
+        background: rgba(254, 202, 202, 0.4);
+        padding: 35px;
+        border-radius: 20px;
+        border: 3px solid rgba(254, 202, 202, 0.7);
+        margin: 35px 0;
+        position: relative;
+      }
+
+      .love-declaration-section::before {
+        content: "❤️";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 2em;
+        animation: heartbeat 2s ease-in-out infinite;
+      }
+
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        25%,
+        75% {
+          transform: scale(1.1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+      }
+
+      .love-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        text-align: center;
+        margin-bottom: 20px;
+        margin-left: 40px;
+      }
+
+      .love-text {
+        font-size: 1.1rem;
+        color: var(--text-primary);
+        line-height: 1.7;
+        text-align: center;
+        margin-left: 40px;
+      }
+
+      .spiderman-reference {
+        background: rgba(219, 234, 254, 0.3);
+        padding: 20px;
+        border-radius: 15px;
+        border-left: 4px solid var(--chat-blue);
+        margin: 20px 0;
+        position: relative;
+        font-style: italic;
+      }
+
+      .spiderman-reference::before {
+        content: "🕷️";
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 1.3em;
+      }
+
+      .spiderman-text {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        text-align: center;
+        margin-right: 30px;
+      }
+
+      .emphasis {
+        color: var(--romantic-pink);
+        font-weight: 700;
+      }
+
+      .special-emphasis {
+        color: var(--memory-gold);
+        font-weight: 600;
+        font-style: italic;
+      }
+
+      .sweet-emphasis {
+        color: var(--sweet-pink);
+        font-weight: 600;
+      }
+
+      @keyframes slideInMemory {
+        from {
+          opacity: 0;
+          transform: translateY(30px) scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .navigation-section {
+        margin-top: 40px;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .nav-button {
+        background: linear-gradient(
+          45deg,
+          var(--romantic-pink),
+          var(--soft-purple)
+        );
+        border: none;
+        border-radius: 25px;
+        padding: 12px 24px;
+        font-size: 1rem;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .nav-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .nav-button:active {
+        transform: scale(0.95);
+      }
+
+      .back-button {
+        background: linear-gradient(
+          45deg,
+          var(--secondary-pastel),
+          var(--accent-pastel)
+        );
+        color: var(--text-primary);
+      }
+
+      /* Responsive para móviles pequeños */
+      @media (max-width: 320px) {
+        .title {
+          font-size: 1.7rem;
+        }
+
+        .memory-card {
+          padding: 25px;
+        }
+
+        .love-declaration-section {
+          padding: 25px;
+        }
+
+        .love-title {
+          font-size: 1.2rem;
+          margin-left: 30px;
+        }
+
+        .love-text {
+          margin-left: 30px;
+        }
+
+        .navigation-section {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="page">
+        <header class="main-header">
+          <h1 class="title">Mi Historia Contigo</h1>
+          <p class="subtitle">2/? - El Inicio de Todo</p>
+        </header>
+
+        <section class="story-section">
+          <div class="memory-card">
+            <div class="date-time">14 de Mayo - 8:00 PM</div>
+
+            <p class="memory-text">
+              Recuerdo que me escribiste, a las 8pm, y dije:
+            </p>
+
+            <div class="chat-reaction">
+              <p class="reaction-text">
+                "¿De verdad está hablando conmigo? 😻"
+              </p>
+            </div>
+
+            <p class="memory-text">
+              Y por alguna razón empecé a hablar de carátulas, y no sé cómo no
+              te espanté, porque de verdad carátulas, nada que ver, pero
+              decidiste quedarte,
+              <span class="emphasis">y lo aprecio mucho</span>.
+            </p>
+          </div>
+          <div class="getting-to-know-section">
+            <div class="section-title">Los días pasaron</div>
+
+            <p class="memory-text">
+              Poco a poco nos fuimos conociendo mejor, yo te conocí mejor, sé
+              que:
+            </p>
+
+            <ul class="traits-list">
+              <li class="trait-item">Amas el dulce, los helados</li>
+              <li class="trait-item">
+                Te gustan las series románticas en su mayoría
+              </li>
+              <li class="trait-item">Te gusta la saga de Harry Potter</li>
+              <li class="trait-item">
+                Amas con todo tu corazón la música de Justin Bieber
+              </li>
+              <li class="trait-item">Tu cumpleaños el 2 de Diciembre</li>
+              <li class="trait-item">
+                Eres una gran persona, una niña alegre (si es que no se enferma
+                por comer mucho dulce 😼)
+              </li>
+              <li class="trait-item">Siempre intentas ayudar a los demas</li>
+              <li class="trait-item">Eres una increible persona</li>
+
+              <li class="trait-item">Tienes un carisma impresionante</li>
+              <li class="trait-item">
+                Siempre pones un pie adelante, aunque la vida te trate mal
+              </li>
+            </ul>
+
+            <p class="memory-text">
+              <span class="emphasis">Y eso es de admirar</span>
+            </p>
+          </div>
+          <div class="memory-card">
+            <div class="date-time">Viernes 23 de Mayo - 6:44 PM</div>
+
+            <p class="memory-text">
+              Fue en el que <span class="emphasis">mi vida mejoró</span>, porque
+              nos hicimos novios. Reuní todo mi valor para pedírtelo, mis amigos
+              decían "van muy rápido", pero
+              <span class="emphasis">mi corazón sabía lo que hacía</span>.
+            </p>
+
+            <div class="chat-reaction">
+              <p class="reaction-text">
+                Me hiciste muy feliz y creo que yo también te hice feliz
+              </p>
+            </div>
+
+            <p class="memory-text">
+              Mi mamá sorprendida diciendo:
+              <span class="special-emphasis"
+                >"¿Qué hiciste? Te veo muy feliz, estás raro"</span
+              >
+            </p>
+          </div>
+
+          <div class="memory-card">
+            <div class="date-time">23 de Junio - Un Mes de Novios</div>
+
+            <p class="memory-text">
+              Un mes en el que fue
+              <span class="emphasis">lo mejor del mundo para mí</span>, aunque
+              reconozco que no fui perfecto, hice todo lo posible por ser mejor,
+              y como dije cometí errores, pero
+              <span class="emphasis">mi amor fue genuino y puro</span>.
+            </p>
+
+            <div class="chat-reaction">
+              <p class="reaction-text">
+                Hasta te hice una carta a mano de 100 "te amo" en diferentes
+                idiomas
+              </p>
+            </div>
+
+            <p class="memory-text">
+              Mis amigos me dijeron "no hagas eso, ella te tiene que hacer eso",
+              y perdón por no comprarte flores y darte algo a mano pero,
+              <span class="special-emphasis"
+                >créeme lo hice con todo mi corazón</span
+              >.
+            </p>
+          </div>
+
+          <div class="love-declaration-section">
+            <div class="love-title">Me enamoré tan fuerte</div>
+
+            <p class="love-text">
+              Créeme me enamoré mucho de ti, y quiero que tú seas mi camino,
+              <span class="emphasis">eres mi todo</span>. Si pudiera elegir de
+              nuevo <span class="emphasis">siempre elegiría a ti</span>, me sigo
+              enamorando de ti incluso cuando no estás. Anque ya te haigas ido,
+              aun sigues en mi corazon
+            </p>
+
+            <div class="spiderman-reference">
+              <p class="spiderman-text">
+                Quiero que seas mi Gwen Stacy y yo tu Peter Parker
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="navigation-section">
+          <a href="page7.html" class="nav-button back-button">← Regresar</a>
+          <a href="page9.html" class="nav-button">Continuar →</a>
+        </section>
+      </div>
+    </div>
+
+    <!-- Audio de fondo -->
+    <audio id="backgroundMusic" loop>
+      <source
+        src="songs/Gone, Gone, Gone - Phillip Phillips (Español) Peter & Gwen (mp3cut.net).mp3"
+        type="audio/mpeg"
+      />
+      Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <script>
+      // Efecto de entrada suave al cargar la página
+      window.addEventListener("load", function () {
+        document.body.style.opacity = "0";
+        document.body.style.transition = "opacity 0.5s ease-in-out";
+
+        // Reproducir música de fondo
+        const audio = document.getElementById("backgroundMusic");
+        audio.volume = 0.3; // Volumen al 30% para que no sea muy fuerte
+
+        // Intentar reproducir la música (algunos navegadores requieren interacción del usuario)
+        audio.play().catch(function (error) {
+          console.log(
+            "La reproducción automática fue bloqueada. El usuario debe interactuar primero."
+          );
+          // Agregar evento para reproducir cuando el usuario haga clic en cualquier parte
+          document.addEventListener(
+            "click",
+            function () {
+              audio.play();
+            },
+            { once: true }
+          );
+        });
+
+        setTimeout(() => {
+          document.body.style.opacity = "1";
+        }, 100);
+      });
+    </script>
+  </body>
+</html>

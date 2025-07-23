@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Errores - Para Dome ❤️</title>
+    <style>
+        :root {
+            --primary-pastel: #FFE4E6;
+            --secondary-pastel: #E0F2FE;
+            --accent-pastel: #FEF3C7;
+            --text-primary: #374151;
+            --text-secondary: #6B7280;
+            --background: #FFFFFF;
+            --romantic-pink: #F8BBD9;
+            --soft-purple: #E8D5FF;
+            --error-red: #FEE2E2;
+            --sincere-blue: #DBEAFE;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 100%;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .page {
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .main-header {
+            margin-bottom: 40px;
+        }
+
+        .title {
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--error-red), var(--sincere-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.4;
+            padding: 0 10px;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            font-style: italic;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .errors-section {
+            margin: 40px 0;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .errors-list {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .error-item {
+            background: rgba(254, 226, 226, 0.3);
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid var(--romantic-pink);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            animation: slideIn 0.6s ease-out;
+            position: relative;
+        }
+
+        .error-item::before {
+            content: '💔';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 1.2em;
+        }
+
+        .error-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            margin-left: 35px;
+        }
+
+        .error-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-left: 35px;
+            line-height: 1.5;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .error-item:nth-child(1) { animation-delay: 0.1s; }
+        .error-item:nth-child(2) { animation-delay: 0.2s; }
+        .error-item:nth-child(3) { animation-delay: 0.3s; }
+        .error-item:nth-child(4) { animation-delay: 0.4s; }
+        .error-item:nth-child(5) { animation-delay: 0.5s; }
+
+        .navigation-section {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .nav-button {
+            background: linear-gradient(45deg, var(--romantic-pink), var(--soft-purple));
+            border: none;
+            border-radius: 25px;
+            padding: 12px 24px;
+            font-size: 1rem;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .nav-button:active {
+            transform: scale(0.95);
+        }
+
+        .back-button {
+            background: linear-gradient(45deg, var(--secondary-pastel), var(--accent-pastel));
+            color: var(--text-primary);
+        }
+
+        /* Responsive para móviles pequeños */
+        @media (max-width: 320px) {
+            .title {
+                font-size: 1.5rem;
+            }
+            
+            .error-item {
+                padding: 15px;
+            }
+            
+            .error-title {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="page">
+            <header class="main-header">
+                <h1 class="title">Cometí errores, no soy perfecto, y admito que cometí errores</h1>
+                <p class="description">
+                    Reconozco mis fallas y quiero ser honesto contigo sobre lo que hice mal
+                </p>
+            </header>
+
+            <section class="errors-section">
+                <ul class="errors-list">
+                    <li class="error-item">
+                        <div class="error-title">No proprizarte</div>
+                        <div class="error-description">
+                            Que estupido fui al decir programar o jugar con mis amigos, envez de priorizar al amor de mi vida 😭😭
+                        </div>
+                    </li>
+                    
+                    <li class="error-item">
+                        <div class="error-title">Error 2: No reponder rapido</div>
+                        <div class="error-description">
+                            Si, lo admito, yo no te respondía rapido 😔. Me esperaba máximo 10 minutos para hacerlo.
+                            Y no es porque no te quiera, o no me importara. Créeme, me moría por responder.
+                            Pero soy un IDIOTA por seguir el consejo de un amigo.
+                            Me dijo que si quería durar en la relación, no debía responder de INMEDIATO,
+                            porque te me ibas a aburrir, y que no respondiera tan seguido.
+                            Y pues fui un IMBÉCIL, TONTO, ESTÚPIDO por creer eso.
+                            TE MALDIGO JAIRON LÓPEZ.
+                        </div>
+                    </li>
+                    
+                    <li class="error-item">
+                        <div class="error-title">No pasar tiempo contigo</div>
+                        <div class="error-description">
+                            Qué PENDEJO fui al creer que, con solo estar cerca de ti, ya era suficiente.
+Debí hablar todo contigo, alejarte del grupo de amigas para conversar a solas.
+Créeme, LO QUERÍA HACER, pero mi ESTÚPIDO cerebro pensó que estaba haciendo lo correcto,
+cuando NO FUE ASÍ.
+                        </div>
+                    </li>
+                    
+                    <li class="error-item">
+                        <div class="error-title">No comprarte regalos</div>
+                        <div class="error-description">
+                            Ojalá tuviera el dinero para comprarte algo grande... pero no lo tengo.
+Y fallé incluso en comprarte cosas pequeñas, como un chicle o cualquier detalle sencillo.
+Sentía que te merecías algo mejor.
+También pensé que darte cartas, algo hecho a mano o por mí, ya era suficiente… o incluso algo mejor.
+Perdón por creer eso 😔
+                        </div>
+                    </li>
+                    
+                    <li class="error-item">
+                        <div class="error-title">Error 5: NO DARME CUENTA DE MIS ERRORES</div>
+                        <div class="error-description">
+                            Soy alguien inteligente, un excelente programador, pero ni aun así pude notar que algo andaba mal.
+Ese fue mi error: pensar que todo estaba bien.
+Le hice caso a tus palabras: "TODO ESTÁ BIEN", y no me detuve a mirar si realmente lo estaba.
+Recién me entero de todo esto gracias a tus amigas,
+y si no me lo decían, seguiría pensando que no hice nada mal.
+Pero la realidad es otra...
+Y lamento si te lastimé con estos errores.
+No era mi intención.
+Pero soy humano, y cometo errores constantemente…
+Y ahora me toca pagar el precio.
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="navigation-section">
+                <a href="page2.html" class="nav-button back-button">← Regresar</a>
+                <a href="page4.html" class="nav-button">Continuar →</a>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // Efecto de entrada suave al cargar la página
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease-in-out';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
